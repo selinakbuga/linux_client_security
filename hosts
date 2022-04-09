@@ -1,0 +1,46 @@
+#örnek env yazımı
+#10.12.6.12    ipv6=2a07:1182:12:6::12   fqdn=c4i-ads.mil.12.berylia.org       OS=centos7
+#10.12.1.34    ipv6=2a07:1182:12:1::34   fqdn=ws3-beg04.beg.12.berylia.org      OS=ubuntu2004_desktop
+#100.100.12.66   ipv6=2a07:1182:12:9::66      fqdn=ns1.mil.12.berylia.org          OS=freebsd122
+
+[all:vars]
+#ansible_shell_type=sh
+ansible_connection=ssh
+#ansible_ssh_hash=
+ansible_ssh_user=root
+ansible_ssh_pass=kalamar123
+host_key_checking=False
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+
+[baf]
+#172.16.103.221
+#172.16.103.222
+172.16.103.223
+172.16.103.224
+#172.16.103.225
+#172.16.103.226
+
+[baf-ads]
+[baf-bg]
+[baf-dmz]
+[baf-int]
+[baf-5G-core]
+[baf-5G-ue]
+[beg]
+[beg-sub]
+[beg-scada]
+[beg-power]
+[beg-dmz]
+[beg-int]
+[bob]
+[bob-rms]
+[bob-dmz]
+[bob-int]
+[jiv]
+[jiv-dmz]
+[jiv-int]
+[kwt]
+[kwt-scada]
+[kwt-plc]
+[monitoring]
+
