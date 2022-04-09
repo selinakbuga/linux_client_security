@@ -1,0 +1,15 @@
+---
+ansible_ssh_user: root
+ansible_ssh_pass: ahtapot.123!! #Admin1Admin1
+ansible_user: ls22sistem
+web_user: ls22web
+th_user: ls22th
+#keys_directory: "../templates/"
+yum_ansible_pass: $6$9245kHWWQbRwLSFy$a27LBu07ErRXUA90sNFkofua6LqnPn82hHAci64.Rp8LPlQA/pj6Va7zJo9eSVzJY3CZ4oLG3pMVH6HqvAtRm/  #yumpassword ahtapot.123!!
+deb_web_pass: $6$gmnvN7Sr$DBj1mrjPlvwThxwQHX.CqdHZvC7EaeI8pmODfcJw/nkFW2V0Xq15u0ujGPgnAs5ach6P9gRqS37zBvIcOWn1f0     #debpassword ahtapot.123!!
+yum_web_pass: $6$9245kHWWQbRwLSFy$a27LBu07ErRXUA90sNFkofua6LqnPn82hHAci64.Rp8LPlQA/pj6Va7zJo9eSVzJY3CZ4oLG3pMVH6HqvAtRm/     #yumpassword ahtapot.123!!
+deb_ansible_pass: $6$gmnvN7Sr$DBj1mrjPlvwThxwQHX.CqdHZvC7EaeI8pmODfcJw/nkFW2V0Xq15u0ujGPgnAs5ach6P9gRqS37zBvIcOWn1f0 #debpassword ahtapot.123!!
+yum_th_pass: $6$9245kHWWQbRwLSFy$a27LBu07ErRXUA90sNFkofua6LqnPn82hHAci64.Rp8LPlQA/pj6Va7zJo9eSVzJY3CZ4oLG3pMVH6HqvAtRm/  #yumpassword ahtapot.123
+deb_th_pass: $6$gmnvN7Sr$DBj1mrjPlvwThxwQHX.CqdHZvC7EaeI8pmODfcJw/nkFW2V0Xq15u0ujGPgnAs5ach6P9gRqS37zBvIcOWn1f0 #debpassword ahtapot.123!!
+yum_root_pass: $6$9245kHWWQbRwLSFy$a27LBu07ErRXUA90sNFkofua6LqnPn82hHAci64.Rp8LPlQA/pj6Va7zJo9eSVzJY3CZ4oLG3pMVH6HqvAtRm/  #yumpassword ahtapot.123
+deb_root_pass: $6$gmnvN7Sr$DBj1mrjPlvwThxwQHX.CqdHZvC7EaeI8pmODfcJw/nkFW2V0Xq15u0ujGPgnAs5ach6P9gRqS37zBvIcOWn1f0 #debpassword ahtapot.123!!
