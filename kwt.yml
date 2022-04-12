@@ -1,0 +1,33 @@
+---
+all:
+  hosts:
+    # Klein Water Technologies - SCADA
+    hmi:
+      ansible_host: 10.16.25.111
+    mt:
+      ansible_host: 10.16.25.201
+    historian:
+      ansible_host: 10.16.25.100
+
+  vars:
+    ansible_connection: ssh
+    ansible_user: user
+    ansible_password: password
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+
+  children:
+    # Klein Water Technologies - SCADA
+    kwt-scada-linux:
+      hosts:
+        mt:
+        historian:
+
+    kwt-scada-windows:
+      hosts:
+        hmi:
+
+    # Klein Water Technologies - All Machines
+    kwt-all:
+      children:
+        kwt-scada-linux:
+        kwt-scada-windows:

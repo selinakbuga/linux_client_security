@@ -1,0 +1,69 @@
+---
+all:
+  hosts:
+    # Bank of Berylia - RMS
+    rms:
+      ansible_host: 10.16.17.11
+    mp-match:
+      ansible_host: 10.16.17.12
+
+    # Bank of Berylia - Public Services
+    www:
+      ansible_host: 100.98.16.4
+    hermes:
+      ansible_host: 100.98.16.11
+    helpdesk:
+      ansible_host: 100.98.16.13
+
+    # Bank of Berylia - Internal Services
+    rms-rdp:
+      ansible_host: 10.16.16.11
+    siem:
+      ansible_host: 10.16.16.42
+
+  vars:
+    ansible_connection: ssh
+    ansible_user: user
+    ansible_password: password
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+
+  children:
+    # Bank of Berylia - RMS
+    bob-rms-linux:
+      hosts:
+        rms:
+        mp-match:
+
+    # Bank of Berylia - Public Services
+    bob-dmz-linux:
+      hosts:
+        www:
+        hermes:
+        helpdesk:
+
+    # Bank of Berylia - Internal Services
+    bob-int-linux:
+      hosts:
+        siem:
+
+    bob-int-windows:
+      hosts:
+        rms-rdp:
+
+    # Bank of Berylia - Linux Machines
+    bob-linux:
+      children:
+        bob-rms-linux:
+        bob-dmz-linux:
+        bob-int-linux:
+
+    # Bank of Berylia - Windows Machines
+    bob-windows:
+      children:
+        bob-int-windows:
+
+    # Bank of Berylia - All Machines
+    bob-all:
+      children:
+        bob-linux:
+        bob-windows:
