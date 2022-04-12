@@ -1,0 +1,57 @@
+---
+all:
+  hosts:
+    # Janford Institute of Virology - Public Services
+    www:
+      ansible_host: 100.98.16.130
+    blog:
+      ansible_host: 100.98.16.131
+    lims:
+      ansible_host: 100.98.16.132
+    research-virology:
+      ansible_host: 100.98.16.134
+
+    # Janford Institute of Virology - Internal Network
+    dc:
+      ansible_host: 10.16.32.2
+    ws-1:
+      ansible_host: 10.16.32.21
+    ws-2:
+      ansible_host: 10.16.32.22
+    ws-3:
+      ansible_host: 10.16.32.23
+    ws-4:
+      ansible_host: 10.16.32.24
+    ws-5:
+      ansible_host: 10.16.32.25
+
+  vars:
+    ansible_connection: ssh
+    ansible_user: user
+    ansible_password: password
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+
+  children:
+    # Janford Institute of Virology - Public Services
+    jiv-dmz-linux:
+      hosts:
+        www:
+        blog:
+        lims:
+        research-virology:
+
+    # Janford Institute of Virology - Internal Network
+    jiv-int-linux:
+      hosts:
+        dc:
+        ws-1:
+        ws-2:
+        ws-3:
+        ws-4:
+        ws-5:
+
+    # Janford Institute of Virology - Linux Machines (All Machines)
+    jiv-linux:
+      children:
+        jiv-dmz-linux:
+        jiv-int-linux:
