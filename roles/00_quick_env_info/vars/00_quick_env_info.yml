@@ -1,0 +1,6 @@
+---
+ansible_user: ls22sistem
+web_user: ls22web
+th_user: ls22th
+
+time: "{{ ansible_date_time.hour }}:{{ ansible_date_time.minute }}:{{ ansible_date_time.second }}"
