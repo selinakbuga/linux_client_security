@@ -1,0 +1,300 @@
+---
+all:
+  hosts:
+    # Berylian Armed Forces - Air Defense System
+    mil-ads:
+      ansible_host: 10.16.9.31
+    c4i-ads:
+      ansible_host: 10.16.9.32
+    map-ads:
+      ansible_host: 10.16.9.34
+    wpn-ads:
+      ansible_host: 10.16.9.35
+
+    # Berylian Armed Forces - 5G Core
+    5gcn-nrf:
+      ansible_host: 10.16.11.30
+    5gcn-smf:
+      ansible_host: 10.16.11.33
+    5gcn-db:
+      ansible_host: 10.16.11.31
+    5gcn-pcf:
+      ansible_host: 10.16.11.35
+    5gcn-udr:
+      ansible_host: 10.16.11.36
+    5gcn-udm:
+      ansible_host: 10.16.11.37
+    5gcn-ausf:
+      ansible_host: 10.16.11.38
+    5gcn-nssf:
+      ansible_host: 10.16.11.39
+    5gcn-bsf:
+      ansible_host: 10.16.11.40
+    5gcn-webui:
+      ansible_host: 10.16.11.66
+    5gcn-amf:
+      ansible_host: 10.16.11.32
+    5gcn-upf-1:
+      ansible_host: 10.16.11.34
+    5gcn-upf-2:
+      ansible_host: 10.16.13.3  # Bunu ozellikle kontrol edebilir misiniz?
+
+    # Berylian Armed Forces - Public Services
+    ns1:
+      ansible_host: 100.97.16.2
+    ns2:
+      ansible_host: 100.97.16.3
+    wap:
+      ansible_host: 100.97.16.4
+    adfs:
+      ansible_host: 100.97.16.5
+    av:
+      ansible_host: 100.97.16.10
+    code:
+      ansible_host: 100.97.16.11
+    service-portal:
+      ansible_host: 100.97.16.16
+    borderguard:
+      ansible_host: 100.97.16.17
+    tvs:
+      ansible_host: 100.97.16.51
+    www:
+      ansible_host: 100.97.16.53
+    fossil:
+      ansible_host: 100.97.16.59
+    passengers:
+      ansible_host: 100.97.16.60
+    recruitment:
+      ansible_host: 100.97.16.61
+
+    # Berylian Armed Forces - Internal Network
+    dc1:
+      ansible_host: 10.16.8.2
+    dc2:
+      ansible_host: 10.16.8.3
+    files:
+      ansible_host: 10.16.8.4
+    mail:
+      ansible_host: 10.16.8.5
+    sp:
+      ansible_host: 10.16.8.6
+    sql:
+      ansible_host: 10.16.8.7
+    wsus:
+      ansible_host: 10.16.8.8
+    hq-gsc:
+      ansible_host: 10.16.8.77
+    ws1-1:
+      ansible_host: 10.16.8.31
+    ws1-2:
+      ansible_host: 10.16.8.32
+    ws1-3:
+      ansible_host: 10.16.8.33
+    ws1-4:
+      ansible_host: 10.16.8.34
+    ws1-5:
+      ansible_host: 10.16.8.35
+    ws2-1:
+      ansible_host: 10.16.8.36
+    ws2-2:
+      ansible_host: 10.16.8.37
+    ws2-3:
+      ansible_host: 10.16.8.38
+    ws2-4:
+      ansible_host: 10.16.8.39
+    ws2-5:
+      ansible_host: 10.16.8.40
+    ws3-1:
+      ansible_host: 10.16.8.41
+    ws3-2:
+      ansible_host: 10.16.8.42
+    ws3-3:
+      ansible_host: 10.16.8.43
+    ws3-4:
+      ansible_host: 10.16.8.44
+    ws3-5:
+      ansible_host: 10.16.8.45
+    mcs:
+      ansible_host: 10.16.8.78
+
+    # Berylian Armed Forces - 5G Radio Access Network
+    5g-gNB:
+      ansible_host: 10.16.11.200
+
+    # Berylian Armed Forces - 5G User Equipment
+    5g-ue01-1:
+      ansible_host: 10.16.11.230
+    5g-ue01-2:
+      ansible_host: 10.99.16.10
+    5g-ue02-1:
+      ansible_host: 10.16.11.231
+    5g-ue02-2:
+      ansible_host: 10.99.16.20
+    5g-ue03-1:
+      ansible_host: 10.16.11.232
+    5g-ue03-2:
+      ansible_host: 10.99.16.30
+
+    # Berylian Armed Forces - Border Guard
+    baf-reports:
+      ansible_host: 10.16.12.2
+    bg-gsc:
+      ansible_host: 10.16.12.64
+    radar-ads:
+      ansible_host: 10.16.12.33
+    ws1-bg-1:
+      ansible_host: 10.16.12.11
+    ws1-bg-2:
+      ansible_host: 10.16.12.12
+    ws1-bg-3:
+      ansible_host: 10.16.12.13
+    ws1-bg-4:
+      ansible_host: 10.16.12.14
+    ws1-bg-5:
+      ansible_host: 10.16.12.15
+
+  vars:
+    ansible_connection: ssh
+    ansible_user: user
+    ansible_password: password
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+
+  children:
+    # Berylian Armed Forces - Air Defense System
+    baf-ads:
+      hosts:
+        mil-ads:
+        c4i-ads:
+        map-ads:
+        wpn-ads:
+
+    # Berylian Armed Forces - 5G Core
+    baf-5gcn:
+      hosts:
+        5gcn-nrf:
+        5gcn-smf:
+        5gcn-db:
+        5gcn-pcf:
+        5gcn-udr:
+        5gcn-udm:
+        5gcn-ausf:
+        5gcn-nssf:
+        5gcn-bsf:
+        5gcn-webui:
+        5gcn-amf:
+        5gcn-upf-1:
+        5gcn-upf-2:
+
+    # Berylian Armed Forces - 5G User Equipment
+    baf-5g-ue:
+      hosts:
+        5g-ue01-1:
+        5g-ue01-2:
+        5g-ue02-1:
+        5g-ue02-2:
+        5g-ue03-1:
+        5g-ue03-2:
+
+    # Berylian Armed Forces - Border Guard
+    baf-bg-linux:
+      hosts:
+        baf-reports:
+        bg-gsc:
+        radar-ads:
+
+    baf-bg-windows:
+      hosts:
+        ws1-bg-1:
+        ws1-bg-2:
+        ws1-bg-3:
+        ws1-bg-4:
+        ws1-bg-5:
+
+    # Berylian Armed Forces - Internal Network
+    baf-int-linux:
+      hosts:
+        hq-gsc:
+        mcs:
+
+    baf-int-windows:
+      hosts:
+        dc1:
+        dc2:
+        files:
+        mail:
+        sp:
+        sql:
+        wsus:
+        ws1-1:
+        ws1-2:
+        ws1-3:
+        ws1-4:
+        ws1-5:
+        ws2-1:
+        ws2-2:
+        ws2-3:
+        ws2-4:
+        ws2-5:
+        ws3-1:
+        ws3-2:
+        ws3-3:
+        ws3-4:
+        ws3-5:
+
+    # Berylian Armed Forces - Public Services
+    baf-dmz-bsd:
+      hosts:
+        ns1:
+        ns2:
+        service-portal:
+
+    baf-dmz-linux:
+      hosts:
+        av:
+        borderguard:
+        tvs:
+        fossil:
+        passengers:
+        recruitment:
+
+    baf-dmz-windows:
+      hosts:
+        wap:
+        adfs:
+        code:
+        www:
+
+    # Berylian Armed Forces - 5G Radio Access Network
+    baf-5g-ran:
+      hosts:
+        5g-gNB:
+
+    # Berylian Armed Forces - Linux Machines
+    baf-linux:
+      children:
+        baf-ads:
+        baf-5gcn:
+        baf-5g-ran:
+        baf-5g-ue:
+        baf-bg-linux:
+        baf-int-linux:
+        baf-dmz-linux:
+
+    # Berylian Armed Forces - FreeBSD Machines
+    baf-bsd:
+      children:
+        baf-dmz-bsd:
+
+    # Berylian Armed Forces - Windows Machines
+    baf-windows:
+      children:
+        baf-bg-windows:
+        baf-int-windows:
+        baf-dmz-windows:
+
+    # Berylian Armed Forces - All Machines
+    baf-all:
+      children:
+        baf-bsd:
+        baf-linux:
+        baf-windows:
