@@ -3,7 +3,7 @@
     url: http://custom.16.berylia.org:9797/velociraptor_0.6.3_client.deb
     dest: /opt/velociraptor_0.6.3_client.deb
     mode: '0755'
-    timeout: 20
+    timeout: 60
 
 # - name: Copy velociraptor deb to machine
 #   copy:
