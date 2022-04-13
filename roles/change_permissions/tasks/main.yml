@@ -1,0 +1,74 @@
+---
+# - name: check if file exists
+#   stat: 
+#     path: '{{ item }}'
+#   register: check_file
+#   loop:
+#     - '/etc/issue'
+#     - '/etc/issue.net'
+#     - '/etc/motd'
+#     - '/etc/group-'
+#     - '/etc/passwd-'
+#     - '/etc/group'
+#     - '/etc/passwd'
+#     - '/etc/cron.d/'
+#     - '/etc/cron.daily/'
+#     - '/etc/cron.hourly/'
+#     - '/etc/cron.monthly/'
+#     - '/etc/cron.weekly/'
+#     - '/etc/crontab'
+#     - '/etc/at.allow'
+#     - '/etc/cron.allow'
+#     - '/etc/ssh/sshd_config'
+
+# - name: Print
+#   debug: 
+#     msg: "{{ check_file['results'] }}"
+ 
+# - name: Print
+#   debug: 
+#     msg: '{{ item.item }}'
+#   with_items: "{{ check_file['results'] }}"
+# 
+# - name: Verifying if file exists
+#   debug: msg="File {{ item.item }} exist"
+#   with_items: "{{ check_file_name.results }}"
+#   when: item.stat.exists
+
+- name: Change group, owner and permission of file
+  file:
+    path: '{{ item.file }}'
+    owner: root
+    group: root
+    mode: '{{ item.permission }}'
+  ignore_errors: true
+  loop:
+    - {file: '/etc/issue', permission: '0644'}
+    - {file: '/etc/issue.net', permission: '0644'}
+    - {file: '/etc/motd', permission: '0644'}
+    - {file: '/etc/group-', permission: '0644'}
+    - {file: '/etc/passwd-', permission: '0644'}
+    - {file: '/etc/group', permission: '0644'}
+    - {file: '/etc/passwd', permission: '0644'}
+    - {file: '/etc/cron.d/', permission: '0700'}
+    - {file: '/etc/cron.daily/', permission: '0700'}
+    - {file: '/etc/cron.hourly/', permission: '0700'}
+    - {file: '/etc/cron.monthly/', permission: '0700'}
+    - {file: '/etc/cron.weekly/', permission: '0700'}
+    - {file: '/etc/crontab', permission: '0600'}
+    - {file: '/etc/at.allow', permission: '0640'}
+    - {file: '/etc/cron.allow', permission: '0640'}
+    - {file: '/etc/ssh/sshd_config', permission: '0600'}
+
+- name: Change owner and permission of file
+  file:
+    path: '{{ item.file }}'
+    owner: root
+    mode: '{{ item.permission }}'
+  ignore_errors: true
+  loop:
+    - {file: '/boot/grub/grub.cfg', permission: '0600'}
+    - {file: '/etc/gshadow-', permission: '0640'}
+    - {file: '/etc/shadow-', permission: '0640'}
+    - {file: '/etc/gshadow', permission: '0640'}
+    - {file: '/etc/shadow', permission: '0640'}

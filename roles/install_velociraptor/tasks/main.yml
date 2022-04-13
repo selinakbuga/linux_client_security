@@ -1,0 +1,6 @@
+---
+- include: Debian.yml
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- include: AlmaLinux.yml
+  when: ansible_distribution == 'AlmaLinux'
