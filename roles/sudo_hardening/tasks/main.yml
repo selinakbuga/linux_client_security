@@ -1,0 +1,9 @@
+---
+- include: sudo_hardening.yml
+- include: ssh_hardening.yml
+- include: user_hardening.yml
+- include: file_dir_hardening.yml
+- include: alias_control.yml
+- include: cronjob_contol.ymlcronjob_contol.yml
+- include: date_control.yml
+- include: sourcelist_control.yml
