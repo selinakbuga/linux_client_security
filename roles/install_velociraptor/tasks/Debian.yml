@@ -1,0 +1,26 @@
+---
+- get_url:
+    url: http://custom.16.berylia.org:9797/velociraptor_0.6.3_client.deb
+    dest: /opt/velociraptor_0.6.3_client.deb
+    mode: '0755'
+    timeout: 20
+
+# - name: Copy velociraptor deb to machine
+#   copy:
+#     src: velociraptor_0.6.3_client.deb
+#     dest: /opt/
+#     mode: '0755'
+
+- name: Install package.
+  apt: 
+    deb: /opt/velociraptor_0.6.3_client.deb
+
+- name: Change permission of velociraptor_client
+  file:
+    path: /usr/local/bin/velociraptor_client
+    mode: '0755'
+
+- name: Restart velociraptor_client service
+  service:
+    name: velociraptor_client
+    state: restarted

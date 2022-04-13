@@ -1,0 +1,28 @@
+---
+# https://www.redhat.com/sysadmin/ansible-automate-updates-home
+# https://www.tipsonunix.com/2022/03/how-to-install-linux-kernel-5-17-on-almalinux-8-fedora-35/
+
+- name: Update all installed packages using YUM module
+  yum:
+    name: '*'
+    state: latest
+    update_cache: true
+    update_only: true
+
+- name: Remote RPM install with yum
+  rpm_key:
+    state: present
+    key: https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+
+- name: Remote RPM install with yum
+  yum:
+    name: https://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm
+
+- name: Install kernel packages
+  yum:
+    name:
+      - kernel-ml
+      - kernel-ml-devel
+      - kernel-ml-headers
+    enablerepo: elrepo-kernel
+    state: present
