@@ -1,0 +1,7 @@
+---
+- include: backupfolder.yml
+- include: sudoers_file_backup.yml
+- include: etc_files_backup.yml 
+- include: home_files_backups.yml
+#- include: opt_files_backup.yml
+#- include: var_files_backups.yml

@@ -1,0 +1,176 @@
+---
+####### ansible_user .ssh managment
+
+- name: "Access - Upload Public ssh key - correct folder needs to be in place {{ansible_user}}"
+  file:
+      state: directory
+      path: "/home/{{ansible_user}}/.ssh"
+      recurse: yes
+      owner: "{{ansible_user}}"
+      group: "{{ansible_user}}"
+      mode: "0700"
+
+- name: "Access - Push Public ssh key {{ansible_user}}"
+  authorized_key:
+      user: "{{ansible_user}}"
+      state: present
+      key: "{{ lookup('file', '../templates/ls22sistem.pub') }}"
+
+#- name: "Access - Push Public ssh key {{ansible_user}}"
+#  copy:
+#      src: "../templates/ls22sistem.pub"
+#      dest: "/home/{{ansible_user}}/.ssh/"
+#      owner: "{{ansible_user}}"
+#      group: "{{ansible_user}}"
+#      mode: "0600"
+
+
+####### web user ssh managment
+
+- name: "Access - Upload Public ssh key - correct folder needs to be in place {{web_user}}"
+  file:
+      state: directory
+      path: "/home/{{web_user}}/.ssh"
+      recurse: yes
+      owner: "{{web_user}}"
+      group: "{{web_user}}"
+      mode: "0700"
+
+- name: Access - Push Public ssh key
+  authorized_key:
+      user: "{{web_user}}"
+      state: present
+      key: "{{ lookup('file', '../templates/ls22web.pub') }}"
+
+#- name: "Access - Push Public ssh key {{web_user}}"
+#  copy:
+#      src: "../templates/ls22web.pub"
+#      dest: "/home/{{web_user}}/.ssh/"
+#      owner: "{{web_user}}"
+#      group: "{{web_user}}"
+#      mode: "0600"
+
+
+####### th user .ssh managment
+
+- name: "Access - Upload Public ssh key - correct folder needs to be in place {{th_user}}"
+  file:
+      state: directory
+      path: "/home/{{th_user}}/.ssh"
+      recurse: yes
+      owner: "{{th_user}}"
+      group: "{{th_user}}"
+      mode: "0700"
+
+- name: "Access - Push Public ssh key {{th}}"
+  authorized_key:
+      user: "{{th_user}}"
+      state: present
+      key: "{{ lookup('file', '../templates/ls22th.pub') }}"
+
+#- name: "Access - Push Public ssh key {{th_user}}"
+#  copy:
+#      src: "../templates/ls22th.pub"
+#      dest: "/home/{{th_user}}/.ssh/"
+#      owner: "{{th_user}}"
+#      group: "{{th_user}}"
+#      mode: "0600"
+
+
+####### root .ssh managment
+
+- name: "Access - Upload Public ssh key - correct folder needs to be in place root"
+  file:
+      state: directory
+      path: "/root/.ssh"
+      recurse: yes
+      owner: "root"
+      group: "root"
+      mode: "0700"
+
+- name: Access - Push Public ssh key root
+  authorized_key:
+      user: root
+      state: present
+      key: "{{ lookup('file', '../templates/ls22root.pub') }}"
+
+#- name: "Access - Push Public ssh key root"
+#  copy:
+#      src: "../templates/ls22root.pub"
+#      dest: "/root/.ssh/"
+#      owner: "root"
+#      group: "root"
+#      mode: "0600"
+
+
+####### sp_user .ssh managment
+
+- name: "Access - Upload Public ssh key - correct folder needs to be in place {{sp_user}}"
+  file:
+      state: directory
+      path: "/home/{{sp_user}}/.ssh"
+      recurse: yes
+      owner: "{{sp_user}}"
+      group: "{{sp_user}}"
+      mode: "0700"
+
+- name: "Access - Push Public ssh key {{sp_user}}"
+  authorized_key:
+      user: "{{sp_user}}"
+      state: present
+      key: "{{ lookup('file', '../templates/ls22sp.pub') }}"
+
+#- name: "Access - Push Public ssh key {{sp_user}}"
+#  copy:
+#      src: "../templates/ls22sp.pub"
+#      dest: "/home/{{sp_user}}/.ssh/"
+#      owner: "{{sp_user}}"
+#      group: "{{sp_user}}"
+#      mode: "0600"
+
+
+####### bank user ssh managment
+
+- name: "Access - Upload Public ssh key - correct folder needs to be in place {{bank_user}}"
+  file:
+      state: directory
+      path: "/home/{{bank_user}}/.ssh"
+      recurse: yes
+      owner: "{{bank_user}}"
+      group: "{{bank_user}}"
+      mode: "0700"
+
+- name: "Access - Push Public ssh key {{bank_user}}"
+  authorized_key:
+      user: "{{bank_user}}"
+      state: present
+      key: "{{ lookup('file', '../templates/ls22bank.pub') }}"
+
+#- name: "Access - Push Public ssh key {{bank_user}}"
+#  copy:
+#      src: "../templates/ls22bank.pub"
+#      dest: "/home/{{bank_user}}/.ssh/"
+#      owner: "{{bank_user}}"
+#      group: "{{bank_user}}"
+#      mode: "0600"
+
+#değiştirildi.
+#- name: "Access - Push Public ssh key {{th_user}}"
+#  template:
+#      src: "../templates/ls22thr.pub.j2"
+#      dest: "/home/{{th_user}}/.ssh"
+#      user: "{{th_user}}"
+#      state: present
+#      key: "{{ lookup('file', '../keys/ls22ahtapot.pub') }}"
+#      owner: "{{ th_user}}"
+#      group: "{{ th_user }}"
+#      mode: 640
+#- name: Access - Push Public ssh key
+#  authorized_key:
+#      user: "{{th_user}}"
+#      state: present
+#      key: "{{ lookup('file', '../templates/ls21th.pub') }}"
+#
+#- name: "File Permissions - home directory .ssh permissions"
+#  shell: chown -R "{{th_user}}":"{{th_user}}" /home/{{th_user}}/.ssh
+#  shell: chmod 600 /home/{{th_user}}/.ssh/ls21th.pub

@@ -1,0 +1,60 @@
+---
+- name: Copy a ls22sistem.pub key
+  ansible.builtin.copy:
+    src: /home/ls22sistem/.ssh/authorized_keys
+    dest: /home/ls22sistem/backups/ls22sistem.pub
+    owner: ls22sistem
+    group: ls22sistem
+    mode: 0600
+    backup: yes
+    remote_src: yes
+
+- name: Copy a ls22web.pub key
+  ansible.builtin.copy:
+    src: /home/ls22web/.ssh/authorized_keys
+    dest: /home/ls22sistem/backups/ls22web.pub
+    owner: ls22web
+    group: ls22web
+    mode: 0600
+    backup: yes
+    remote_src: yes
+
+- name: Copy a ls22th.pub key
+  ansible.builtin.copy:
+    src: /home/ls22th/.ssh/authorized_keys
+    dest: /home/ls22sistem/backups/ls22th.pub
+    owner: ls22th
+    group: ls22th
+    mode: 0600
+    backup: yes
+    remote_src: yes
+
+- name: Copy a ls22sp.pub key
+  ansible.builtin.copy:
+    src: /home/ls22sp/.ssh/authorized_keys
+    dest: /home/ls22sistem/backups/ls22sp.pub
+    owner: ls22sp
+    group: ls22sp
+    mode: 0600
+    backup: yes
+    remote_src: yes
+
+- name: Copy a ls22bank.pub key
+  ansible.builtin.copy:
+    src: /home/ls22bank/.ssh/authorized_keys
+    dest: /home/ls22sistem/backups/ls22bank.pub
+    owner: ls22bank
+    group: ls22bank
+    mode: 0600
+    backup: yes
+    remote_src: yes
+
+- name: Copy a ls22root.pub key
+  ansible.builtin.copy:
+    src: /root/.ssh/authorized_keys
+    dest: /home/ls22sistem/backups/ls22root.pub
+    owner: root
+    group: root
+    mode: 0600
+    backup: yes
+    remote_src: yes

@@ -1,0 +1,220 @@
+---
+# LS21-LS22 Linux Operation Security
+# Selin Akbuğa
+# Configure basics of linux machines: users, passwords, home file permissions, ssh key directory
+
+- name: "Setup - Create group {{ansible_user}}"
+  group:
+      name: "{{ansible_user}}"
+
+- name: "Setup - Create user {{ansible_user}} (Debian-ish)"
+  user:
+      name: "{{ansible_user}}"
+      groups: "{{ansible_user}},sudo"
+      append: yes
+      shell: /bin/bash
+      createhome: yes
+#      password: "{{ 'Ahtapot123!!' |password_hash( 'sha512') }}"
+      password: "{{deb_ansible_pass}}"
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: "Setup - Create user {{ansible_user}} (RedHat-ish)"
+  user:
+      name: "{{ansible_user}}"
+      groups: "{{ansible_user}},wheel"
+      append: yes
+      shell: /bin/bash
+      createhome: yes
+      home: /home/{{ansible_user}}
+#      password: "{{ 'Ahtapot123!!' |password_hash( 'sha512') }}"
+      password: "{{yum_ansible_pass}}"
+  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux']
+
+- name: "Recursively change ownership of a {{ansible_user}} home directory"
+  file:
+      path: "/home/{{ansible_user}}"
+      state: directory
+      recurse: yes
+      owner: "{{ansible_user}}"
+      group: "{{ansible_user}}"
+      mode: "0750"
+
+#######web user tasks
+
+- name: "Setup - create group {{web_user}}"
+  group:
+    name: "{{web_user}}"
+
+- name: "Setup - Create user {{web_user}} (Debian-ish)"
+  user:
+      name: "{{web_user}}"
+      groups: "{{web_user}},sudo"
+      append: yes
+      shell: /bin/bash
+      createhome: yes
+      password: "{{deb_web_pass}}"
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: "Setup - Create user {{web_user}} (RedHat-ish)"
+  user:
+      name: "{{web_user}}"
+      groups: "{{web_user}},wheel"
+      append: yes
+      shell: /bin/bash
+      createhome: yes
+      home: /home/{{web_user}}
+      password: "{{yum_web_pass}}"
+  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux']
+
+- name: "Recursively change ownership of a {{web_user}} home directory"
+  file:
+      path: "/home/{{web_user}}"
+      state: directory
+      recurse: yes
+      owner: "{{web_user}}"
+      group: "{{web_user}}"
+      mode: "0750"
+
+####### th user managment
+
+- name: "Setup - create group {{th_user}}"
+  group:
+    name: "{{th_user}}"
+
+- name: "Setup - Create user {{th_user}} (Debian-ish)"
+  user:
+      name: "{{th_user}}"
+      groups: "{{th_user}},sudo"
+      append: yes
+      shell: /bin/bash
+      createhome: yes
+      password: "{{deb_th_pass}}"
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: "Setup - Create user {{th_user}} (RedHat-ish)"
+  user:
+      name: "{{th_user}}"
+      groups: "{{th_user}},wheel"
+      append: yes
+      shell: /bin/bash
+      createhome: yes
+      home: /home/{{th_user}}
+      password: "{{yum_th_pass}}"
+  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux']
+
+- name: "Recursively change ownership of a {{th_user}} home directory"
+  file:
+      path: "/home/{{th_user}}"
+      state: directory
+      recurse: yes
+      owner: "{{th_user}}"
+      group: "{{th_user}}"
+      mode: "750"
+
+####### sp user managment
+
+- name: "Setup - Create group {{sp_user}}"
+  group:
+      name: "{{sp_user}}"
+
+- name: "Setup - Create user {{sp_user}} (Debian-ish)"
+  user:
+      name: "{{sp_user}}"
+      groups: "{{sp_user}},sudo"
+      append: yes
+      shell: /bin/bash
+      createhome: yes
+#      password: "{{ 'Ahtapot123!!' |password_hash( 'sha512') }}"
+      password: "{{deb_sp_pass}}"
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: "Setup - Create user {{sp_user}} (RedHat-ish)"
+  user:
+      name: "{{sp_user}}"
+      groups: "{{sp_user}},wheel"
+      append: yes
+      shell: /bin/bash
+      createhome: yes
+      home: /home/{{sp_user}}
+#      password: "{{ 'Ahtapot123!!' |password_hash( 'sha512') }}"
+      password: "{{yum_sp_pass}}"
+  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux']
+
+- name: "Recursively change ownership of a {{sp_user}} home directory"
+  file:
+      path: "/home/{{sp_user}}"
+      state: directory
+      recurse: yes
+      owner: "{{sp_user}}"
+      group: "{{sp_user}}"
+      mode: "0750"
+
+
+####### bank user managment
+
+- name: "Setup - Create group {{bank_user}}"
+  group:
+      name: "{{bank_user}}"
+
+- name: "Setup - Create user {{bank_user}} (Debian-ish)"
+  user:
+      name: "{{bank_user}}"
+      groups: "{{bank_user}},sudo"
+      append: yes
+      shell: /bin/bash
+      createhome: yes
+#      password: "{{ 'Ahtapot123!!' |password_hash( 'sha512') }}"
+      password: "{{deb_bank_pass}}"
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: "Setup - Create user {{bank_user}} (RedHat-ish)"
+  user:
+      name: "{{bank_user}}"
+      groups: "{{bank_user}},wheel"
+      append: yes
+      shell: /bin/bash
+      createhome: yes
+      home: /home/{{bank_user}}
+#      password: "{{ 'Ahtapot123!!' |password_hash( 'sha512') }}"
+      password: "{{yum_bank_pass}}"
+  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux']
+
+- name: "Recursively change ownership of a {{bank_user}} home directory"
+  file:
+      path: "/home/{{bank_user}}"
+      state: directory
+      recurse: yes
+      owner: "{{bank_user}}"
+      group: "{{bank_user}}"
+      mode: "0750"
+
+
+###root managment keys
+#
+#- name: Change user password
+#  ansible.builtin.user:
+#                       name: "{{ root_user }}"
+#                       update_password: always
+#                       password: "{{ root_new_password  | password_hash('sha512') }}"
+#
+#
+#
+#- name: bashrc on root accounts are poluted with aliases for ls
+#  lineinfile:
+#      path: /root/.bashrc
+#      regexp: '^alias ls'
+#      line: "alias ls='ls --color=auto'"
+#      state: present
+#
+#- name: "Access - Change root password  (Debian-ish)"
+#  user:
+#      name: "root"
+#      password: "{{deb_root_pass}}"
+#  when: ansible_distribution in ['Debian', 'Ubuntu']
+#
+#- name: "Access - Change root password  (RedHat-ish)"
+#  user:
+#      name: "root"
+#      password: "{{yum_root_pass}}"
+#  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux']
+
