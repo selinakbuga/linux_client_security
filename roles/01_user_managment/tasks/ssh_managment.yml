@@ -1,0 +1,42 @@
+---
+
+#- name: Quick Fix - Enable root login via ssh via password
+#  lineinfile: path=/etc/ssh/sshd_config
+#              regexp='^$PermitRootLogin.+?$'
+#              line='PermitRootLogin yes'
+#              state=present
+
+
+- name: Quick Fix - Disable root login via ssh via password
+  lineinfile: 
+      path=/etc/ssh/sshd_config
+      regexp='^$PermitRootLogin.+?$'
+      line='PermitRootLogin no'
+      state=present
+
+#- name: Disable password login user
+#  lineinfile:
+#      dest=/etc/ssh/sshd_config
+#      regexp="^PasswordAuthentication"
+#      line="PasswordAuthentication no"
+#      state=present
+#  notify:
+#    - restart sshd
+
+
+- name: Disable password login user
+  lineinfile: 
+      dest=/etc/ssh/sshd_config
+      regexp="^PasswordAuthentication"
+      line="PasswordAuthentication no"
+      state=present
+  notify:
+    - restart sshd
+
+- name: reset ssh
+  service:
+    name: sshd
+    state: restarted
+
+
+
