@@ -1,9 +1,0 @@
----
-- name: "create /home/ls22sistem/backups/ folder"
-  file:
-      path: "/home/ls22sistem/backups/"
-      state: directory
-      recurse: yes
-      owner: root
-      group: root
-      mode: 0750
