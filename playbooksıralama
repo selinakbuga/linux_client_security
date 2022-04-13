@@ -1,4 +1,16 @@
 #00_user_change_password     root aprolasını değiştirme
 #01_user_managment           kullanıcıları oluşturma(user-group-home-keys-rooterişimikapatma-parolasız root olmak)
-#02_quick_env_info           ls22sistembackupfoleroluşturma-etc altındaki dosyaların yedeğini alma- key yedek alma- sudoers dosya yedeğinialma
-#03_file_managment
+#02_quick_env_info           ls22sistembackupfoleroluşturma-etc altındaki dosyaların yedeğini alma- key yedek alma- sudoers dosya yedeğinialma PAKETLERİN YEDEĞİNİ "AL"
+#03                          crowstrike_falcon velociraptor McAfee yükleme "CONF DOSYASININ YEDEĞİ ALINABİLİR Mİ"
+#package_managment           paketleri güncelle kernel güncelle paket kaldır. 
+#03_file_managment           dizin ve dosyaların permissions and owner group sıkılaştırmaları. linklenmiş dosyaların sıkılaştırmaları. paswordless user " yedekleri al"
+
+
+ssh_hardening                ssh connections, root connection, password authentication no, max connect. , 
+alias_hardening	
+sudo_hardening               ser permissions - passwordless change root - include dir disable
+userfile_hardening           home directroy - sudo group- shadow - having group number 0
+terminal_hardening           history, ss, nyancat, unicorn vb terminal manipulation
+cronjob_contol.yml
+audit_hardening.yml
+sourcelist_control.yml
