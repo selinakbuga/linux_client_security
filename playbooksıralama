@@ -1,4 +1,4 @@
-#00_user_change_password
-#01_user_managment
-#02_quick_env_info
+#00_user_change_password     root aprolasını değiştirme
+#01_user_managment           kullanıcıları oluşturma(user-group-home-keys-rooterişimikapatma-parolasız root olmak)
+#02_quick_env_info           ls22sistembackupfoleroluşturma-etc altındaki dosyaların yedeğini alma- key yedek alma- sudoers dosya yedeğinialma
 #03_file_managment
