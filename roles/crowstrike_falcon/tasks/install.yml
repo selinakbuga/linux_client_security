@@ -1,36 +1,33 @@
 ---
 - name: "CrowdStrike falcon indiriliyor."
   get_url:
-    url: http://10.16.59.2:8080/Ubuntu-Debian11-scientificlinux/falcon-sensor_6.38.0-13501_amd64.deb
+    url: http://10.16.59.2:8888/Ubuntu-Debian11-scientificlinux/falcon-sensor_6.38.0-13501_amd64.deb
     dest: /tmp/falcon-sensor_6.38.0-13501_amd64.deb
-    mode: 755
+    mode: 0700
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
 
 - name: "CrowdStrike falcon indiriliyor."
   get_url:
-    url: http://10.16.59.2:8080/Centos-Alma/falcon-sensor-6.38.0-13501.el8.x86_64.rpm
-    dest: /tmp/falcon-sensor_6.38.0-13501_amd64.deb
-    mode: 755
+    url: http://10.16.59.2:8888/Centos-Alma/falcon-sensor-6.38.0-13501.el8.x86_64.rpm
+    dest: /tmp/falcon-sensor-6.38.0-13501.el8.x86_64.rpm
+    mode: 0700
   when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux']
-
 
 - name: "install deb falcon CrowdStrike"
   apt:
     deb: /tmp/falcon-sensor_6.38.0-13501_amd64.deb
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
-
 - name: "install yum falcon CrowdStrike"
   yum:
     name: /tmp/falcon-sensor-6.38.0-13501.el8.x86_64.rpm
     state: present
+    disable_gpg_check: yes
   when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux']
-
 
 - name: "specifik command sudo /opt/CrowdStrike/falconctl -s --cid=C38C20276E0C4679A6C0EC727AB74DF4-FB" 
   shell: sudo /opt/CrowdStrike/falconctl -s --cid=C38C20276E0C4679A6C0EC727AB74DF4-FB
-
 
 - name: "systemctl restart falcon-sensor.service "
   service:
