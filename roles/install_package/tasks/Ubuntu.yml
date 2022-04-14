@@ -1,0 +1,87 @@
+---
+- name:
+  apt:
+    update_cache: true
+    only_upgrade: true
+    name: '{{ item }}'
+  loop:
+    - tcpdump
+    - sudo
+    - bind9-utils
+    - bind9-host
+    - bind9-dnsutils
+    - bind9-libs
+    - intel-microcode
+    - liblz4-1
+    - libx11-6
+    - libx11-data
+    - libssl1.1
+    - openssl
+    - libfribidi0
+    - locales
+    - libc-bin
+    - python3-yaml
+    - libcryptsetup12
+    - libgnutls30
+    - libsqlite3-0
+    - libjson-c4
+    - libx11-6
+    - libxml2
+    - libglib2.0-0
+    - krb5-locales
+    - libgssapi-krb5-2
+    - libk5crypto3
+    - libkrb5-3
+    - libkrb5support0
+    - libhogweed5
+    - libnettle7
+    - tar
+    - xxd
+    - isc-dhcp-client
+    - isc-dhcp-common
+    - busybox-initramfs
+    - busybox-static
+    - linux-generic
+    # - linux-headers
+    - linux-headers-generic
+    # - linux-image
+    - linux-image-generic
+    # - linux-modules
+    # - linux-modules-extra
+    - cpio
+    - libgcrypt20
+    - libpolkit-gobject-1-0
+    - rsync
+    - openssh-client
+    - openssh-server
+    - openssh-sftp-server
+    - accountsservice
+    - libaccountsservice0
+    - libnss-systemd
+    - libpam-systemd
+    - libsystemd0
+    - libudev1
+    - systemd
+    - systemd-sysv
+    - systemd-timesyncd
+    - udev
+    - libicu66
+    - libuv1
+    - apt
+    - apt-utils
+    - libapt-pkg6.0
+    - libglib2.0-data
+    - libp11-kit0
+    - libzstd1
+    - libmaxminddb0
+    - bsdutils
+    - fdisk
+    - libblkid1
+    - libfdisk1
+    - libmount1
+    - libsmartcols1
+    - libuuid1
+    - mount
+    - util-linux
+    - uuid-runtime
+    - python-apt-common

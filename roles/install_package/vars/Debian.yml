@@ -1,0 +1,6 @@
+---
+required_packages:
+  - sudo
+  - vim
+  - auditd
+  - audispd-plugins

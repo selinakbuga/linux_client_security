@@ -1,0 +1,12 @@
+---
+- include: Debian.yml
+  when: ansible_distribution == 'Debian'
+  tags: package
+
+- include: Ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'
+  tags: package
+
+- include: AlmaLinux.yml
+  when: ansible_distribution == 'AlmaLinux'
+  tags: package
