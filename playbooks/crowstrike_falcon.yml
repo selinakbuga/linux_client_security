@@ -4,4 +4,4 @@
   become: True
   become_user: root
   roles:
-    - role: crowstrike_falcon
+    - role: ../roles/crowstrike_falcon
