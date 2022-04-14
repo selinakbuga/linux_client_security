@@ -1,0 +1,770 @@
+ws3-3 | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 181K packets, 132M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 172K packets, 21M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ws3-1 | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ws3-2 | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ws3-4 | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+salt-master | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ns2 | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ns1 | FAILED | rc=127 >>
+/bin/bash: line 1: iptables: command not foundnon-zero return code
+inventory | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+maintenance | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 1 packets, 88 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 1 packets, 88 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ws3-5 | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+k8s-api | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 872K packets, 414M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+  11M 5045M CILIUM_INPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* cilium-feeder: CILIUM_INPUT */
+  11M 5055M KUBE-NODEPORTS  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes health check service ports */
+ 355K   60M KUBE-EXTERNAL-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes externally-visible service portals */
+  11M 5080M KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+17166 1904K CILIUM_FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* cilium-feeder: CILIUM_FORWARD */
+    0     0 KUBE-FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes forwarding rules */
+    0     0 KUBE-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes service portals */
+    0     0 KUBE-EXTERNAL-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes externally-visible service portals */
+    0     0 DOCKER-USER  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 DOCKER-ISOLATION-STAGE-1  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 DOCKER     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 docker0  0.0.0.0/0            0.0.0.0/0           
+
+Chain OUTPUT (policy ACCEPT 847K packets, 503M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+  10M 6315M CILIUM_OUTPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* cilium-feeder: CILIUM_OUTPUT */
+ 340K   57M KUBE-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes service portals */
+  10M 6354M KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain CILIUM_FORWARD (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 8549 1148K ACCEPT     all  --  *      cilium_host  0.0.0.0/0            0.0.0.0/0            /* cilium: any->cluster on cilium_host forward accept */
+    0     0 ACCEPT     all  --  cilium_host *       0.0.0.0/0            0.0.0.0/0            /* cilium: cluster->any on cilium_host forward accept (nodeport) */
+ 8617  756K ACCEPT     all  --  lxc+   *       0.0.0.0/0            0.0.0.0/0            /* cilium: cluster->any on lxc+ forward accept */
+    0     0 ACCEPT     all  --  cilium_net *       0.0.0.0/0            0.0.0.0/0            /* cilium: cluster->any on cilium_net forward accept (nodeport) */
+
+Chain CILIUM_INPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            mark match 0x200/0xf00 /* cilium: ACCEPT for proxy traffic */
+
+Chain CILIUM_OUTPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            mark match 0xa00/0xfffffeff /* cilium: ACCEPT for proxy return traffic */
+  10M 6315M MARK       all  --  *      *       0.0.0.0/0            0.0.0.0/0            mark match ! 0xe00/0xf00 mark match ! 0xd00/0xf00 mark match ! 0xa00/0xe00 /* cilium: host->any mark as from host */ MARK xset 0xc00/0xf00
+
+Chain DOCKER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain DOCKER-ISOLATION-STAGE-1 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DOCKER-ISOLATION-STAGE-2  all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-ISOLATION-STAGE-2 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-USER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain KUBE-EXTERNAL-SERVICES (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-FIREWALL (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes firewall for dropping marked packets */ mark match 0x8000/0x8000
+    0     0 DROP       all  --  *      *      !127.0.0.0/8          127.0.0.0/8          /* block incoming localnet connections */ ! ctstate RELATED,ESTABLISHED,DNAT
+
+Chain KUBE-FORWARD (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate INVALID
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes forwarding rules */ mark match 0x4000/0x4000
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes forwarding conntrack rule */ ctstate RELATED,ESTABLISHED
+
+Chain KUBE-KUBELET-CANARY (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-NODEPORTS (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-PROXY-CANARY (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-SERVICES (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   600 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.2.160          /* linkerd/linkerd-proxy-injector:proxy-injector has no endpoints */ tcp dpt:443 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.1.69           /* linkerd/linkerd-policy-validator:policy-https has no endpoints */ tcp dpt:443 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.0.250          /* linkerd/linkerd-identity:grpc has no endpoints */ tcp dpt:8080 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.2.68           /* linkerd/linkerd-dst:grpc has no endpoints */ tcp dpt:8086 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.1.13           /* linkerd/linkerd-sp-validator:sp-validator has no endpoints */ tcp dpt:443 reject-with icmp-port-unreachable
+k8s-worker-1 | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 710K packets, 455M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+  14M   11G CILIUM_INPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* cilium-feeder: CILIUM_INPUT */
+  14M   11G KUBE-NODEPORTS  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes health check service ports */
+  13M   11G KUBE-EXTERNAL-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes externally-visible service portals */
+  14M   11G KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 136K   81M CILIUM_FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* cilium-feeder: CILIUM_FORWARD */
+    1    36 KUBE-FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes forwarding rules */
+    1    36 KUBE-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes service portals */
+    1    36 KUBE-EXTERNAL-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes externally-visible service portals */
+    1    36 DOCKER-USER  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    1    36 DOCKER-ISOLATION-STAGE-1  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 DOCKER     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 docker0  0.0.0.0/0            0.0.0.0/0           
+
+Chain OUTPUT (policy ACCEPT 526K packets, 1109M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+7996K   17G CILIUM_OUTPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* cilium-feeder: CILIUM_OUTPUT */
+7273K   16G KUBE-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes service portals */
+8000K   17G KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain CILIUM_FORWARD (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+57854   75M ACCEPT     all  --  *      cilium_host  0.0.0.0/0            0.0.0.0/0            /* cilium: any->cluster on cilium_host forward accept */
+    0     0 ACCEPT     all  --  cilium_host *       0.0.0.0/0            0.0.0.0/0            /* cilium: cluster->any on cilium_host forward accept (nodeport) */
+78425 5803K ACCEPT     all  --  lxc+   *       0.0.0.0/0            0.0.0.0/0            /* cilium: cluster->any on lxc+ forward accept */
+    0     0 ACCEPT     all  --  cilium_net *       0.0.0.0/0            0.0.0.0/0            /* cilium: cluster->any on cilium_net forward accept (nodeport) */
+
+Chain CILIUM_INPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            mark match 0x200/0xf00 /* cilium: ACCEPT for proxy traffic */
+
+Chain CILIUM_OUTPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            mark match 0xa00/0xfffffeff /* cilium: ACCEPT for proxy return traffic */
+7996K   17G MARK       all  --  *      *       0.0.0.0/0            0.0.0.0/0            mark match ! 0xe00/0xf00 mark match ! 0xd00/0xf00 mark match ! 0xa00/0xe00 /* cilium: host->any mark as from host */ MARK xset 0xc00/0xf00
+
+Chain DOCKER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain DOCKER-ISOLATION-STAGE-1 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DOCKER-ISOLATION-STAGE-2  all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+    1    36 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-ISOLATION-STAGE-2 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-USER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    1    36 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain KUBE-EXTERNAL-SERVICES (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-FIREWALL (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes firewall for dropping marked packets */ mark match 0x8000/0x8000
+    0     0 DROP       all  --  *      *      !127.0.0.0/8          127.0.0.0/8          /* block incoming localnet connections */ ! ctstate RELATED,ESTABLISHED,DNAT
+
+Chain KUBE-FORWARD (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate INVALID
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes forwarding rules */ mark match 0x4000/0x4000
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes forwarding conntrack rule */ ctstate RELATED,ESTABLISHED
+
+Chain KUBE-KUBELET-CANARY (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-NODEPORTS (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-PROXY-CANARY (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-SERVICES (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.0.250          /* linkerd/linkerd-identity:grpc has no endpoints */ tcp dpt:8080 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.2.68           /* linkerd/linkerd-dst:grpc has no endpoints */ tcp dpt:8086 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.1.69           /* linkerd/linkerd-policy-validator:policy-https has no endpoints */ tcp dpt:443 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.2.160          /* linkerd/linkerd-proxy-injector:proxy-injector has no endpoints */ tcp dpt:443 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.1.13           /* linkerd/linkerd-sp-validator:sp-validator has no endpoints */ tcp dpt:443 reject-with icmp-port-unreachable
+k8s-worker-2 | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 1266K packets, 1107M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+  21M   18G CILIUM_INPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* cilium-feeder: CILIUM_INPUT */
+  21M   18G KUBE-NODEPORTS  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes health check service ports */
+  19M   17G KUBE-EXTERNAL-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes externally-visible service portals */
+  21M   18G KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+1344K 2279M CILIUM_FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* cilium-feeder: CILIUM_FORWARD */
+   56  3360 KUBE-FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes forwarding rules */
+   56  3360 KUBE-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes service portals */
+   56  3360 KUBE-EXTERNAL-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes externally-visible service portals */
+   12   720 DOCKER-USER  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   12   720 DOCKER-ISOLATION-STAGE-1  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 DOCKER     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 docker0  0.0.0.0/0            0.0.0.0/0           
+
+Chain OUTPUT (policy ACCEPT 710K packets, 785M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+  12M   20G CILIUM_OUTPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* cilium-feeder: CILIUM_OUTPUT */
+9294K   13G KUBE-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes service portals */
+  12M   20G KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain CILIUM_FORWARD (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 671K 2215M ACCEPT     all  --  *      cilium_host  0.0.0.0/0            0.0.0.0/0            /* cilium: any->cluster on cilium_host forward accept */
+    0     0 ACCEPT     all  --  cilium_host *       0.0.0.0/0            0.0.0.0/0            /* cilium: cluster->any on cilium_host forward accept (nodeport) */
+ 673K   63M ACCEPT     all  --  lxc+   *       0.0.0.0/0            0.0.0.0/0            /* cilium: cluster->any on lxc+ forward accept */
+    0     0 ACCEPT     all  --  cilium_net *       0.0.0.0/0            0.0.0.0/0            /* cilium: cluster->any on cilium_net forward accept (nodeport) */
+
+Chain CILIUM_INPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            mark match 0x200/0xf00 /* cilium: ACCEPT for proxy traffic */
+
+Chain CILIUM_OUTPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            mark match 0xa00/0xfffffeff /* cilium: ACCEPT for proxy return traffic */
+  12M   20G MARK       all  --  *      *       0.0.0.0/0            0.0.0.0/0            mark match ! 0xe00/0xf00 mark match ! 0xd00/0xf00 mark match ! 0xa00/0xe00 /* cilium: host->any mark as from host */ MARK xset 0xc00/0xf00
+
+Chain DOCKER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain DOCKER-ISOLATION-STAGE-1 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DOCKER-ISOLATION-STAGE-2  all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+   12   720 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-ISOLATION-STAGE-2 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-USER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   12   720 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain KUBE-EXTERNAL-SERVICES (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-FIREWALL (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes firewall for dropping marked packets */ mark match 0x8000/0x8000
+    0     0 DROP       all  --  *      *      !127.0.0.0/8          127.0.0.0/8          /* block incoming localnet connections */ ! ctstate RELATED,ESTABLISHED,DNAT
+
+Chain KUBE-FORWARD (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate INVALID
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes forwarding rules */ mark match 0x4000/0x4000
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes forwarding conntrack rule */ ctstate RELATED,ESTABLISHED
+
+Chain KUBE-KUBELET-CANARY (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-NODEPORTS (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-PROXY-CANARY (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-SERVICES (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.0.250          /* linkerd/linkerd-identity:grpc has no endpoints */ tcp dpt:8080 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.1.13           /* linkerd/linkerd-sp-validator:sp-validator has no endpoints */ tcp dpt:443 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.2.68           /* linkerd/linkerd-dst:grpc has no endpoints */ tcp dpt:8086 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.2.160          /* linkerd/linkerd-proxy-injector:proxy-injector has no endpoints */ tcp dpt:443 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.1.69           /* linkerd/linkerd-policy-validator:policy-https has no endpoints */ tcp dpt:443 reject-with icmp-port-unreachable
+k8s-worker-3 | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 746K packets, 485M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+  14M   12G CILIUM_INPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* cilium-feeder: CILIUM_INPUT */
+  14M   12G KUBE-NODEPORTS  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes health check service ports */
+  14M   11G KUBE-EXTERNAL-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes externally-visible service portals */
+  14M   12G KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 908K  703M CILIUM_FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* cilium-feeder: CILIUM_FORWARD */
+    0     0 KUBE-FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes forwarding rules */
+    0     0 KUBE-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes service portals */
+    0     0 KUBE-EXTERNAL-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes externally-visible service portals */
+    0     0 DOCKER-USER  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 DOCKER-ISOLATION-STAGE-1  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 DOCKER     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 docker0  0.0.0.0/0            0.0.0.0/0           
+
+Chain OUTPUT (policy ACCEPT 570K packets, 536M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+8641K   10G CILIUM_OUTPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* cilium-feeder: CILIUM_OUTPUT */
+8009K 9582M KUBE-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes service portals */
+8644K   10G KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain CILIUM_FORWARD (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 462K  648M ACCEPT     all  --  *      cilium_host  0.0.0.0/0            0.0.0.0/0            /* cilium: any->cluster on cilium_host forward accept */
+    0     0 ACCEPT     all  --  cilium_host *       0.0.0.0/0            0.0.0.0/0            /* cilium: cluster->any on cilium_host forward accept (nodeport) */
+ 446K   55M ACCEPT     all  --  lxc+   *       0.0.0.0/0            0.0.0.0/0            /* cilium: cluster->any on lxc+ forward accept */
+    0     0 ACCEPT     all  --  cilium_net *       0.0.0.0/0            0.0.0.0/0            /* cilium: cluster->any on cilium_net forward accept (nodeport) */
+
+Chain CILIUM_INPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            mark match 0x200/0xf00 /* cilium: ACCEPT for proxy traffic */
+
+Chain CILIUM_OUTPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            mark match 0xa00/0xfffffeff /* cilium: ACCEPT for proxy return traffic */
+8641K   10G MARK       all  --  *      *       0.0.0.0/0            0.0.0.0/0            mark match ! 0xe00/0xf00 mark match ! 0xd00/0xf00 mark match ! 0xa00/0xe00 /* cilium: host->any mark as from host */ MARK xset 0xc00/0xf00
+
+Chain DOCKER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain DOCKER-ISOLATION-STAGE-1 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DOCKER-ISOLATION-STAGE-2  all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-ISOLATION-STAGE-2 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-USER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain KUBE-EXTERNAL-SERVICES (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-FIREWALL (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes firewall for dropping marked packets */ mark match 0x8000/0x8000
+    0     0 DROP       all  --  *      *      !127.0.0.0/8          127.0.0.0/8          /* block incoming localnet connections */ ! ctstate RELATED,ESTABLISHED,DNAT
+
+Chain KUBE-FORWARD (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate INVALID
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes forwarding rules */ mark match 0x4000/0x4000
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes forwarding conntrack rule */ ctstate RELATED,ESTABLISHED
+
+Chain KUBE-KUBELET-CANARY (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-NODEPORTS (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-PROXY-CANARY (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-SERVICES (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.2.160          /* linkerd/linkerd-proxy-injector:proxy-injector has no endpoints */ tcp dpt:443 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.1.69           /* linkerd/linkerd-policy-validator:policy-https has no endpoints */ tcp dpt:443 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.1.13           /* linkerd/linkerd-sp-validator:sp-validator has no endpoints */ tcp dpt:443 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.2.68           /* linkerd/linkerd-dst:grpc has no endpoints */ tcp dpt:8086 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.0.250          /* linkerd/linkerd-identity:grpc has no endpoints */ tcp dpt:8080 reject-with icmp-port-unreachable
+k8s-services | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Data could not be sent to remote host \"100.96.16.12\". Make sure this host can be reached over ssh: root@100.96.16.12: Permission denied (publickey,keyboard-interactive).\r\n",
+    "unreachable": true
+}
+k8s-controller-1 | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 873K packets, 414M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+  11M 5045M CILIUM_INPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* cilium-feeder: CILIUM_INPUT */
+  11M 5056M KUBE-NODEPORTS  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes health check service ports */
+ 355K   60M KUBE-EXTERNAL-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes externally-visible service portals */
+  11M 5080M KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+17166 1904K CILIUM_FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* cilium-feeder: CILIUM_FORWARD */
+    0     0 KUBE-FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes forwarding rules */
+    0     0 KUBE-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes service portals */
+    0     0 KUBE-EXTERNAL-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes externally-visible service portals */
+    0     0 DOCKER-USER  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 DOCKER-ISOLATION-STAGE-1  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 DOCKER     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 docker0  0.0.0.0/0            0.0.0.0/0           
+
+Chain OUTPUT (policy ACCEPT 847K packets, 503M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+  10M 6315M CILIUM_OUTPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* cilium-feeder: CILIUM_OUTPUT */
+ 340K   57M KUBE-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes service portals */
+  10M 6354M KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain CILIUM_FORWARD (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 8549 1148K ACCEPT     all  --  *      cilium_host  0.0.0.0/0            0.0.0.0/0            /* cilium: any->cluster on cilium_host forward accept */
+    0     0 ACCEPT     all  --  cilium_host *       0.0.0.0/0            0.0.0.0/0            /* cilium: cluster->any on cilium_host forward accept (nodeport) */
+ 8617  756K ACCEPT     all  --  lxc+   *       0.0.0.0/0            0.0.0.0/0            /* cilium: cluster->any on lxc+ forward accept */
+    0     0 ACCEPT     all  --  cilium_net *       0.0.0.0/0            0.0.0.0/0            /* cilium: cluster->any on cilium_net forward accept (nodeport) */
+
+Chain CILIUM_INPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            mark match 0x200/0xf00 /* cilium: ACCEPT for proxy traffic */
+
+Chain CILIUM_OUTPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            mark match 0xa00/0xfffffeff /* cilium: ACCEPT for proxy return traffic */
+  10M 6315M MARK       all  --  *      *       0.0.0.0/0            0.0.0.0/0            mark match ! 0xe00/0xf00 mark match ! 0xd00/0xf00 mark match ! 0xa00/0xe00 /* cilium: host->any mark as from host */ MARK xset 0xc00/0xf00
+
+Chain DOCKER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain DOCKER-ISOLATION-STAGE-1 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DOCKER-ISOLATION-STAGE-2  all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-ISOLATION-STAGE-2 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-USER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain KUBE-EXTERNAL-SERVICES (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-FIREWALL (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes firewall for dropping marked packets */ mark match 0x8000/0x8000
+    0     0 DROP       all  --  *      *      !127.0.0.0/8          127.0.0.0/8          /* block incoming localnet connections */ ! ctstate RELATED,ESTABLISHED,DNAT
+
+Chain KUBE-FORWARD (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate INVALID
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes forwarding rules */ mark match 0x4000/0x4000
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes forwarding conntrack rule */ ctstate RELATED,ESTABLISHED
+
+Chain KUBE-KUBELET-CANARY (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-NODEPORTS (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-PROXY-CANARY (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-SERVICES (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   600 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.2.160          /* linkerd/linkerd-proxy-injector:proxy-injector has no endpoints */ tcp dpt:443 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.1.69           /* linkerd/linkerd-policy-validator:policy-https has no endpoints */ tcp dpt:443 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.0.250          /* linkerd/linkerd-identity:grpc has no endpoints */ tcp dpt:8080 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.2.68           /* linkerd/linkerd-dst:grpc has no endpoints */ tcp dpt:8086 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.1.13           /* linkerd/linkerd-sp-validator:sp-validator has no endpoints */ tcp dpt:443 reject-with icmp-port-unreachable
+k8s-controller-3 | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 189K packets, 42M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+2155K  519M CILIUM_INPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* cilium-feeder: CILIUM_INPUT */
+2158K  521M KUBE-NODEPORTS  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes health check service ports */
+96768 6076K KUBE-EXTERNAL-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes externally-visible service portals */
+2170K  602M KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+    6   360 CILIUM_FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* cilium-feeder: CILIUM_FORWARD */
+    1    60 KUBE-FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes forwarding rules */
+    1    60 KUBE-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes service portals */
+    1    60 KUBE-EXTERNAL-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes externally-visible service portals */
+    1    60 DOCKER-USER  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    1    60 DOCKER-ISOLATION-STAGE-1  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 DOCKER     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 docker0  0.0.0.0/0            0.0.0.0/0           
+
+Chain OUTPUT (policy ACCEPT 187K packets, 26M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+2131K  296M CILIUM_OUTPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* cilium-feeder: CILIUM_OUTPUT */
+86293 6284K KUBE-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes service portals */
+2144K  298M KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain CILIUM_FORWARD (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    6   360 ACCEPT     all  --  *      cilium_host  0.0.0.0/0            0.0.0.0/0            /* cilium: any->cluster on cilium_host forward accept */
+    0     0 ACCEPT     all  --  cilium_host *       0.0.0.0/0            0.0.0.0/0            /* cilium: cluster->any on cilium_host forward accept (nodeport) */
+    0     0 ACCEPT     all  --  lxc+   *       0.0.0.0/0            0.0.0.0/0            /* cilium: cluster->any on lxc+ forward accept */
+    0     0 ACCEPT     all  --  cilium_net *       0.0.0.0/0            0.0.0.0/0            /* cilium: cluster->any on cilium_net forward accept (nodeport) */
+
+Chain CILIUM_INPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            mark match 0x200/0xf00 /* cilium: ACCEPT for proxy traffic */
+
+Chain CILIUM_OUTPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            mark match 0xa00/0xfffffeff /* cilium: ACCEPT for proxy return traffic */
+2131K  296M MARK       all  --  *      *       0.0.0.0/0            0.0.0.0/0            mark match ! 0xe00/0xf00 mark match ! 0xd00/0xf00 mark match ! 0xa00/0xe00 /* cilium: host->any mark as from host */ MARK xset 0xc00/0xf00
+
+Chain DOCKER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain DOCKER-ISOLATION-STAGE-1 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DOCKER-ISOLATION-STAGE-2  all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+    1    60 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-ISOLATION-STAGE-2 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-USER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    1    60 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain KUBE-EXTERNAL-SERVICES (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-FIREWALL (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes firewall for dropping marked packets */ mark match 0x8000/0x8000
+    0     0 DROP       all  --  *      *      !127.0.0.0/8          127.0.0.0/8          /* block incoming localnet connections */ ! ctstate RELATED,ESTABLISHED,DNAT
+
+Chain KUBE-FORWARD (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate INVALID
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes forwarding rules */ mark match 0x4000/0x4000
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes forwarding conntrack rule */ ctstate RELATED,ESTABLISHED
+
+Chain KUBE-KUBELET-CANARY (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-NODEPORTS (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-PROXY-CANARY (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-SERVICES (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.0.250          /* linkerd/linkerd-identity:grpc has no endpoints */ tcp dpt:8080 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.2.160          /* linkerd/linkerd-proxy-injector:proxy-injector has no endpoints */ tcp dpt:443 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.1.13           /* linkerd/linkerd-sp-validator:sp-validator has no endpoints */ tcp dpt:443 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.1.69           /* linkerd/linkerd-policy-validator:policy-https has no endpoints */ tcp dpt:443 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.2.68           /* linkerd/linkerd-dst:grpc has no endpoints */ tcp dpt:8086 reject-with icmp-port-unreachable
+k8s-controller-2 | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 498K packets, 258M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+5714K 2992M CILIUM_INPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* cilium-feeder: CILIUM_INPUT */
+5719K 2994M KUBE-NODEPORTS  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes health check service ports */
+2144K 2315M KUBE-EXTERNAL-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes externally-visible service portals */
+5721K 2995M KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+    8   584 CILIUM_FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* cilium-feeder: CILIUM_FORWARD */
+    8   584 KUBE-FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes forwarding rules */
+    8   584 KUBE-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes service portals */
+    8   584 KUBE-EXTERNAL-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes externally-visible service portals */
+    5   420 DOCKER-USER  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    5   420 DOCKER-ISOLATION-STAGE-1  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 DOCKER     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 docker0  0.0.0.0/0            0.0.0.0/0           
+
+Chain OUTPUT (policy ACCEPT 449K packets, 106M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+4969K 1216M CILIUM_OUTPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* cilium-feeder: CILIUM_OUTPUT */
+1421K  295M KUBE-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate NEW /* kubernetes service portals */
+4977K 1217M KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain CILIUM_FORWARD (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  *      cilium_host  0.0.0.0/0            0.0.0.0/0            /* cilium: any->cluster on cilium_host forward accept */
+    0     0 ACCEPT     all  --  cilium_host *       0.0.0.0/0            0.0.0.0/0            /* cilium: cluster->any on cilium_host forward accept (nodeport) */
+    0     0 ACCEPT     all  --  lxc+   *       0.0.0.0/0            0.0.0.0/0            /* cilium: cluster->any on lxc+ forward accept */
+    0     0 ACCEPT     all  --  cilium_net *       0.0.0.0/0            0.0.0.0/0            /* cilium: cluster->any on cilium_net forward accept (nodeport) */
+
+Chain CILIUM_INPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            mark match 0x200/0xf00 /* cilium: ACCEPT for proxy traffic */
+
+Chain CILIUM_OUTPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            mark match 0xa00/0xfffffeff /* cilium: ACCEPT for proxy return traffic */
+4969K 1216M MARK       all  --  *      *       0.0.0.0/0            0.0.0.0/0            mark match ! 0xe00/0xf00 mark match ! 0xd00/0xf00 mark match ! 0xa00/0xe00 /* cilium: host->any mark as from host */ MARK xset 0xc00/0xf00
+
+Chain DOCKER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain DOCKER-ISOLATION-STAGE-1 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DOCKER-ISOLATION-STAGE-2  all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+    5   420 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-ISOLATION-STAGE-2 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-USER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    5   420 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain KUBE-EXTERNAL-SERVICES (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-FIREWALL (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes firewall for dropping marked packets */ mark match 0x8000/0x8000
+    0     0 DROP       all  --  *      *      !127.0.0.0/8          127.0.0.0/8          /* block incoming localnet connections */ ! ctstate RELATED,ESTABLISHED,DNAT
+
+Chain KUBE-FORWARD (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate INVALID
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes forwarding rules */ mark match 0x4000/0x4000
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes forwarding conntrack rule */ ctstate RELATED,ESTABLISHED
+
+Chain KUBE-KUBELET-CANARY (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-NODEPORTS (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-PROXY-CANARY (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain KUBE-SERVICES (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.0.250          /* linkerd/linkerd-identity:grpc has no endpoints */ tcp dpt:8080 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.2.160          /* linkerd/linkerd-proxy-injector:proxy-injector has no endpoints */ tcp dpt:443 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.2.68           /* linkerd/linkerd-dst:grpc has no endpoints */ tcp dpt:8086 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.1.69           /* linkerd/linkerd-policy-validator:policy-https has no endpoints */ tcp dpt:443 reject-with icmp-port-unreachable
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            10.97.1.13           /* linkerd/linkerd-sp-validator:sp-validator has no endpoints */ tcp dpt:443 reject-with icmp-port-unreachable
+historian | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+sicamgridedge | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 154K packets, 228M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 573K  292M DOCKER-USER  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 573K  292M DOCKER-ISOLATION-STAGE-1  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 DOCKER     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 docker0  0.0.0.0/0            0.0.0.0/0           
+ 201K   28M ACCEPT     all  --  br-09083b1a5774 br-09083b1a5774  0.0.0.0/0            0.0.0.0/0           
+ 222K   23M ACCEPT     all  --  *      br-98a257e5f0f6  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+ 2203  131K DOCKER     all  --  *      br-98a257e5f0f6  0.0.0.0/0            0.0.0.0/0           
+ 148K  241M ACCEPT     all  --  br-98a257e5f0f6 !br-98a257e5f0f6  0.0.0.0/0            0.0.0.0/0           
+ 2061  124K ACCEPT     all  --  br-98a257e5f0f6 br-98a257e5f0f6  0.0.0.0/0            0.0.0.0/0           
+
+Chain OUTPUT (policy ACCEPT 182K packets, 28M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain DOCKER (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+  142  7704 ACCEPT     tcp  --  !br-98a257e5f0f6 br-98a257e5f0f6  0.0.0.0/0            172.19.0.7           tcp dpt:5001
+    0     0 ACCEPT     udp  --  !br-98a257e5f0f6 br-98a257e5f0f6  0.0.0.0/0            172.19.0.9           udp dpt:5140
+
+Chain DOCKER-ISOLATION-STAGE-1 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DOCKER-ISOLATION-STAGE-2  all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 DROP       all  --  *      br-09083b1a5774 !172.18.0.0/16        0.0.0.0/0           
+    0     0 DROP       all  --  br-09083b1a5774 *       0.0.0.0/0           !172.18.0.0/16       
+ 148K  241M DOCKER-ISOLATION-STAGE-2  all  --  br-98a257e5f0f6 !br-98a257e5f0f6  0.0.0.0/0            0.0.0.0/0           
+ 573K  292M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-ISOLATION-STAGE-2 (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 DROP       all  --  *      br-98a257e5f0f6  0.0.0.0/0            0.0.0.0/0           
+ 148K  241M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-USER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 573K  292M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           

@@ -1,0 +1,590 @@
+map-ads | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+5gcn-db | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 1 packets, 88 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 1 packets, 88 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+c4i-ads | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+44619 7031K LIBVIRT_INP  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 LIBVIRT_FWX  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 LIBVIRT_FWI  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 LIBVIRT_FWO  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+53382   15M LIBVIRT_OUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain LIBVIRT_INP (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     udp  --  virbr0 *       0.0.0.0/0            0.0.0.0/0            udp dpt:53
+    0     0 ACCEPT     tcp  --  virbr0 *       0.0.0.0/0            0.0.0.0/0            tcp dpt:53
+    0     0 ACCEPT     udp  --  virbr0 *       0.0.0.0/0            0.0.0.0/0            udp dpt:67
+    0     0 ACCEPT     tcp  --  virbr0 *       0.0.0.0/0            0.0.0.0/0            tcp dpt:67
+
+Chain LIBVIRT_OUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     udp  --  *      virbr0  0.0.0.0/0            0.0.0.0/0            udp dpt:53
+    0     0 ACCEPT     tcp  --  *      virbr0  0.0.0.0/0            0.0.0.0/0            tcp dpt:53
+    0     0 ACCEPT     udp  --  *      virbr0  0.0.0.0/0            0.0.0.0/0            udp dpt:68
+    0     0 ACCEPT     tcp  --  *      virbr0  0.0.0.0/0            0.0.0.0/0            tcp dpt:68
+
+Chain LIBVIRT_FWO (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  virbr0 *       192.168.122.0/24     0.0.0.0/0           
+    0     0 REJECT     all  --  virbr0 *       0.0.0.0/0            0.0.0.0/0            reject-with icmp-port-unreachable
+
+Chain LIBVIRT_FWI (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  *      virbr0  0.0.0.0/0            192.168.122.0/24     ctstate RELATED,ESTABLISHED
+    0     0 REJECT     all  --  *      virbr0  0.0.0.0/0            0.0.0.0/0            reject-with icmp-port-unreachable
+
+Chain LIBVIRT_FWX (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  virbr0 virbr0  0.0.0.0/0            0.0.0.0/0           
+5gcn-pcf | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+5gcn-nrf | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+36862 4483K ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+ 2222  186K ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0           
+    8   484 ACCEPT     tcp  --  *      *       10.16.60.0/23        0.0.0.0/0            tcp dpt:22 state NEW,ESTABLISHED
+    6   490 ACCEPT     tcp  --  *      *       10.16.11.33          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.35          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    5   430 ACCEPT     tcp  --  *      *       10.16.11.36          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+   14   970 ACCEPT     tcp  --  *      *       10.16.11.37          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    8   611 ACCEPT     tcp  --  *      *       10.16.11.38          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    4   371 ACCEPT     tcp  --  *      *       10.16.11.39          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.40          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    8   610 ACCEPT     tcp  --  *      *       10.16.11.32          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.34          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+  159  5884 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+25542 4406K ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.60.0/23        tcp dpt:22 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.34          tcp dpt:22 state NEW,ESTABLISHED
+    8   480 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.33          tcp dpt:7777 state NEW,ESTABLISHED
+    1    60 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.35          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.36          tcp dpt:7777 state NEW,ESTABLISHED
+    1    60 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.37          tcp dpt:7777 state NEW,ESTABLISHED
+    6   360 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.38          tcp dpt:7777 state NEW,ESTABLISHED
+    2   120 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.39          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.40          tcp dpt:7777 state NEW,ESTABLISHED
+   11   660 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.32          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.34          tcp dpt:7777 state NEW,ESTABLISHED
+ 4106  352K ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:53 state NEW,ESTABLISHED
+    9   684 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:123 state NEW,ESTABLISHED
+ 2160  130K DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:443 state NEW,ESTABLISHED
+   24  1440 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:80 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:8080 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:194 state NEW,ESTABLISHED
+  705 44118 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+5gcn-smf | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+  260  129K ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    8   666 ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0           
+    2   208 ACCEPT     tcp  --  *      *       10.16.60.0/23        0.0.0.0/0            tcp dpt:22 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.30          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.31          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.32          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.33          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.34          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.35          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.36          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.37          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.38          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.39          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.40          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     udp  --  *      *       10.16.11.34          0.0.0.0/0            udp dpt:8805 state NEW,ESTABLISHED
+    2    72 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+  226 27580 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.60.0/23        tcp dpt:22 state NEW,ESTABLISHED
+    2   251 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.30          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.31          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.32          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.34          tcp dpt:22 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.33          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.35          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.36          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.37          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.38          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.39          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.40          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            10.16.11.34          udp dpt:8805 state NEW,ESTABLISHED
+    8   666 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:53 state NEW,ESTABLISHED
+    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:123 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:443 state NEW,ESTABLISHED
+    8   480 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:80 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:8080 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:194 state NEW,ESTABLISHED
+   24  1740 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+5gcn-ausf | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+5gcn-bsf | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+5gcn-udr | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 3639  748K ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+  629 52139 ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0           
+    6   336 ACCEPT     tcp  --  *      *       10.16.60.0/23        0.0.0.0/0            tcp dpt:22 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.30          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.35          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.36          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.37          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.38          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.39          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.40          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.32          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.33          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+   74  3564 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 4428  823K ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.60.0/23        tcp dpt:22 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.30          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.35          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.36          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.37          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.38          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.39          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.40          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.32          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.33          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.31          tcp dpt:27017 state NEW,ESTABLISHED
+ 1036 86439 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:53 state NEW,ESTABLISHED
+    8   608 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:123 state NEW,ESTABLISHED
+  816 53840 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:443 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:80 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:8080 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:194 state NEW,ESTABLISHED
+    6   558 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+5gcn-webui | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+5gcn-udm | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 7304 1453K ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+  284 23644 ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0           
+    3   180 ACCEPT     tcp  --  *      *       10.16.60.0/23        0.0.0.0/0            tcp dpt:22 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.30          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.35          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.36          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.38          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.39          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.40          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.32          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.33          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.34          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+   72  2784 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 9317 1485K ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.60.0/23        tcp dpt:22 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.30          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.35          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.36          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.37          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.38          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.39          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.40          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.32          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.33          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            100.100.100.0/24     tcp dpt:443 state NEW,ESTABLISHED
+   65  3900 ACCEPT     tcp  --  *      *       0.0.0.0/0            100.100.100.0/24     tcp dpt:22 state NEW,ESTABLISHED
+    1    60 ACCEPT     tcp  --  *      *       0.0.0.0/0            100.101.0.0/24       tcp dpt:443 state NEW,ESTABLISHED
+  456 37986 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:53 state NEW,ESTABLISHED
+    3   228 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:123 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:194 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:529 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:994 state NEW,ESTABLISHED
+   80  4800 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:443 state NEW,ESTABLISHED
+  262 15720 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:80 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:8080 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:194 state NEW,ESTABLISHED
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+5gcn-nssf | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 7741 1156K ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+ 2186  182K ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0           
+    6   664 ACCEPT     tcp  --  *      *       10.16.60.0/23        0.0.0.0/0            tcp dpt:22 state NEW,ESTABLISHED
+    2   120 ACCEPT     tcp  --  *      *       10.16.11.30          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.35          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.36          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.37          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.38          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.40          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    1    60 ACCEPT     tcp  --  *      *       10.16.11.32          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.33          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+  154 20273 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 8743 1055K ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.60.0/23        tcp dpt:22 state NEW,ESTABLISHED
+    4   371 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.30          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.35          tcp dpt:7777 state NEW,ESTABLISHED
+    1    60 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.36          tcp dpt:7777 state NEW,ESTABLISHED
+    1    60 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.37          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.38          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.40          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.32          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.33          tcp dpt:7777 state NEW,ESTABLISHED
+ 3792  323K ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:53 state NEW,ESTABLISHED
+    8   608 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:123 state NEW,ESTABLISHED
+ 2355  172K DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:443 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:80 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:8080 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:194 state NEW,ESTABLISHED
+  597 36904 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+baf-reports | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+5gcn-amf | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 39905 packets, 5031K bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 44451 packets, 6040K bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+bg-gsc | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 2 packets, 128 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 1 packets, 88 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+mcs | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 5496 packets, 2030K bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+  19M   15G DOCKER-USER  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+  19M   15G DOCKER-ISOLATION-STAGE-1  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 DOCKER     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 docker0  0.0.0.0/0            0.0.0.0/0           
+  18M   15G ACCEPT     all  --  *      br-54b167c5149c  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+ 283K   17M DOCKER     all  --  *      br-54b167c5149c  0.0.0.0/0            0.0.0.0/0           
+ 5371  368K ACCEPT     all  --  br-54b167c5149c !br-54b167c5149c  0.0.0.0/0            0.0.0.0/0           
+ 283K   17M ACCEPT     all  --  br-54b167c5149c br-54b167c5149c  0.0.0.0/0            0.0.0.0/0           
+
+Chain OUTPUT (policy ACCEPT 5475 packets, 3150K bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain DOCKER (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     tcp  --  !br-54b167c5149c br-54b167c5149c  0.0.0.0/0            172.18.0.22          tcp dpt:20250
+    0     0 ACCEPT     tcp  --  !br-54b167c5149c br-54b167c5149c  0.0.0.0/0            172.18.0.6           tcp dpt:20000
+    0     0 ACCEPT     tcp  --  !br-54b167c5149c br-54b167c5149c  0.0.0.0/0            172.18.0.7           tcp dpt:80
+    0     0 ACCEPT     tcp  --  !br-54b167c5149c br-54b167c5149c  0.0.0.0/0            172.18.0.9           tcp dpt:8080
+    0     0 ACCEPT     tcp  --  !br-54b167c5149c br-54b167c5149c  0.0.0.0/0            172.18.0.10          tcp dpt:20030
+    0     0 ACCEPT     tcp  --  !br-54b167c5149c br-54b167c5149c  0.0.0.0/0            172.18.0.11          tcp dpt:20190
+    0     0 ACCEPT     tcp  --  !br-54b167c5149c br-54b167c5149c  0.0.0.0/0            172.18.0.12          tcp dpt:20240
+    0     0 ACCEPT     tcp  --  !br-54b167c5149c br-54b167c5149c  0.0.0.0/0            172.18.0.13          tcp dpt:20180
+    0     0 ACCEPT     tcp  --  !br-54b167c5149c br-54b167c5149c  0.0.0.0/0            172.18.0.14          tcp dpt:20130
+    0     0 ACCEPT     tcp  --  !br-54b167c5149c br-54b167c5149c  0.0.0.0/0            172.18.0.15          tcp dpt:20050
+    0     0 ACCEPT     tcp  --  !br-54b167c5149c br-54b167c5149c  0.0.0.0/0            172.18.0.16          tcp dpt:20170
+    0     0 ACCEPT     tcp  --  !br-54b167c5149c br-54b167c5149c  0.0.0.0/0            172.18.0.17          tcp dpt:20210
+    0     0 ACCEPT     tcp  --  !br-54b167c5149c br-54b167c5149c  0.0.0.0/0            172.18.0.18          tcp dpt:20090
+    0     0 ACCEPT     tcp  --  !br-54b167c5149c br-54b167c5149c  0.0.0.0/0            172.18.0.19          tcp dpt:20140
+    0     0 ACCEPT     tcp  --  !br-54b167c5149c br-54b167c5149c  0.0.0.0/0            172.18.0.20          tcp dpt:20110
+    0     0 ACCEPT     tcp  --  !br-54b167c5149c br-54b167c5149c  0.0.0.0/0            172.18.0.21          tcp dpt:20080
+    0     0 ACCEPT     tcp  --  !br-54b167c5149c br-54b167c5149c  0.0.0.0/0            172.18.0.23          tcp dpt:20100
+    0     0 ACCEPT     tcp  --  !br-54b167c5149c br-54b167c5149c  0.0.0.0/0            172.18.0.24          tcp dpt:20150
+    0     0 ACCEPT     tcp  --  !br-54b167c5149c br-54b167c5149c  0.0.0.0/0            172.18.0.25          tcp dpt:20120
+
+Chain DOCKER-ISOLATION-STAGE-1 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DOCKER-ISOLATION-STAGE-2  all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+ 5371  368K DOCKER-ISOLATION-STAGE-2  all  --  br-54b167c5149c !br-54b167c5149c  0.0.0.0/0            0.0.0.0/0           
+  19M   15G RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-ISOLATION-STAGE-2 (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 DROP       all  --  *      br-54b167c5149c  0.0.0.0/0            0.0.0.0/0           
+ 5371  368K RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-USER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+  19M   15G RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+hq-gsc | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 318K packets, 24M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+55653   58M DOCKER-USER  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+55653   58M DOCKER-ISOLATION-STAGE-1  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 DOCKER     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 docker0  0.0.0.0/0            0.0.0.0/0           
+38397   57M ACCEPT     all  --  *      br-dd638c5f56f3  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+ 1154 69240 DOCKER     all  --  *      br-dd638c5f56f3  0.0.0.0/0            0.0.0.0/0           
+16102  871K ACCEPT     all  --  br-dd638c5f56f3 !br-dd638c5f56f3  0.0.0.0/0            0.0.0.0/0           
+    6   360 ACCEPT     all  --  br-dd638c5f56f3 br-dd638c5f56f3  0.0.0.0/0            0.0.0.0/0           
+
+Chain OUTPUT (policy ACCEPT 348K packets, 37M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+  797 64716 DROP       all  --  *      *       0.0.0.0/0            100.100.101.33      
+   48  3893 ACCEPT     all  --  *      *       0.0.0.0/0            100.100.101.33      
+
+Chain DOCKER (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     tcp  --  !br-dd638c5f56f3 br-dd638c5f56f3  0.0.0.0/0            172.18.0.2           tcp dpt:9000
+ 1148 68880 ACCEPT     tcp  --  !br-dd638c5f56f3 br-dd638c5f56f3  0.0.0.0/0            172.18.0.2           tcp dpt:8080
+
+Chain DOCKER-ISOLATION-STAGE-1 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DOCKER-ISOLATION-STAGE-2  all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+16102  871K DOCKER-ISOLATION-STAGE-2  all  --  br-dd638c5f56f3 !br-dd638c5f56f3  0.0.0.0/0            0.0.0.0/0           
+55653   58M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-ISOLATION-STAGE-2 (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 DROP       all  --  *      br-dd638c5f56f3  0.0.0.0/0            0.0.0.0/0           
+16102  871K RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-USER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+55653   58M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+av | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Data could not be sent to remote host \"100.97.16.10\". Make sure this host can be reached over ssh: This system operates in the high security mode. Users have no explicit or implicit expectation of privacy.  Any or all uses of this system and all data on this system may be intercepted, monitored, recorded, copied, audited, inspected, and disclosed to authorized sites and law enforcement personnel, as well as authorized officials of other agencies. By using this system, the user consent to such disclosure at the discretion of authorized site personnel. Unauthorized or improper use of this system may result in administrative disciplinary action, civil and criminal penalties. By continuing to use this system you indicate your awareness of and consent to these terms and conditions of use. \nReceived disconnect from 100.97.16.10 port 22:2: Too many authentication failures\r\nDisconnected from 100.97.16.10 port 22\r\n",
+    "unreachable": true
+}
+borderguard | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+tvs | FAILED | rc=127 >>
+/bin/bash: line 1: iptables: command not foundnon-zero return code
+fossil | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+passengers | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 3 packets, 797 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+recruitment | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 314K packets, 21M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+8781K 5681M DOCKER-USER  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+8781K 5681M DOCKER-ISOLATION-STAGE-1  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 DOCKER     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 docker0  0.0.0.0/0            0.0.0.0/0           
+7972K 3318M ACCEPT     all  --  *      br-e9614f097816  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+ 175K   10M DOCKER     all  --  *      br-e9614f097816  0.0.0.0/0            0.0.0.0/0           
+ 635K 2353M ACCEPT     all  --  br-e9614f097816 !br-e9614f097816  0.0.0.0/0            0.0.0.0/0           
+ 161K 9681K ACCEPT     all  --  br-e9614f097816 br-e9614f097816  0.0.0.0/0            0.0.0.0/0           
+
+Chain OUTPUT (policy ACCEPT 231K packets, 387M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain DOCKER (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     tcp  --  !br-e9614f097816 br-e9614f097816  0.0.0.0/0            172.18.0.3           tcp dpt:5432
+ 8016  469K ACCEPT     tcp  --  !br-e9614f097816 br-e9614f097816  0.0.0.0/0            172.18.0.4           tcp dpt:443
+ 5220  289K ACCEPT     tcp  --  !br-e9614f097816 br-e9614f097816  0.0.0.0/0            172.18.0.4           tcp dpt:80
+
+Chain DOCKER-ISOLATION-STAGE-1 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DOCKER-ISOLATION-STAGE-2  all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+ 635K 2353M DOCKER-ISOLATION-STAGE-2  all  --  br-e9614f097816 !br-e9614f097816  0.0.0.0/0            0.0.0.0/0           
+8781K 5681M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-ISOLATION-STAGE-2 (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 DROP       all  --  *      br-e9614f097816  0.0.0.0/0            0.0.0.0/0           
+ 635K 2353M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-USER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+8781K 5681M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+5gcn-upf-1 | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 4212  648K ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+  123 10178 ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0           
+    2   120 ACCEPT     tcp  --  *      *       10.16.60.0/23        0.0.0.0/0            tcp dpt:22 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.30          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.35          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.36          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.37          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.38          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.39          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.40          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.32          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.33          0.0.0.0/0            tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.1           0.0.0.0/0            tcp dpt:179 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.11.2           0.0.0.0/0            tcp dpt:179 state NEW,ESTABLISHED
+ 1309 78540 ACCEPT     tcp  --  *      *       10.16.13.1           0.0.0.0/0            tcp dpt:179 state NEW,ESTABLISHED
+ 1314 78840 ACCEPT     tcp  --  *      *       10.16.13.2           0.0.0.0/0            tcp dpt:179 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       10.16.59.2           0.0.0.0/0            tcp dpt:179 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       10.16.59.22          0.0.0.0/0            tcp dpt:179 state NEW,ESTABLISHED
+    0     0 ACCEPT     udp  --  *      *       10.16.11.200         0.0.0.0/0            udp dpt:2152 state NEW,ESTABLISHED
+    0     0 ACCEPT     udp  --  *      *       10.16.11.200         0.0.0.0/0            udp dpt:2123 state NEW,ESTABLISHED
+    0     0 ACCEPT     udp  --  *      *       10.16.11.200         0.0.0.0/0            udp dpt:8805 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.8.250          0.0.0.0/0            tcp dpt:22 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.8.251          0.0.0.0/0            tcp dpt:22 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.8.252          0.0.0.0/0            tcp dpt:22 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.8.253          0.0.0.0/0            tcp dpt:22 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       10.16.8.254          0.0.0.0/0            tcp dpt:22 state NEW,ESTABLISHED
+   34  1224 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 3072  587K ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:61000 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:60994 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:6011 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:6010 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:194 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:529 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:994 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.60.0/23        tcp dpt:22 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.30          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.35          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.36          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.37          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.38          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.39          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.40          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.32          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.33          tcp dpt:7777 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.1           tcp dpt:179 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.11.2           tcp dpt:179 state NEW,ESTABLISHED
+   23  1632 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.13.1           tcp dpt:179 state NEW,ESTABLISHED
+   23  1632 ACCEPT     tcp  --  *      *       0.0.0.0/0            10.16.13.2           tcp dpt:179 state NEW,ESTABLISHED
+    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            10.16.11.200         udp dpt:2152 state NEW,ESTABLISHED
+    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            10.16.11.200         udp dpt:2123 state NEW,ESTABLISHED
+    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            10.16.11.200         udp dpt:8805 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       100.99.16.0/24       10.16.8.5            tcp dpt:22 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       100.99.16.0/24       10.16.8.5            tcp dpt:25 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       100.99.16.0/24       10.16.8.5            tcp dpt:587 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       100.99.16.0/24       10.16.8.5            tcp dpt:465 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       100.99.16.0/24       10.16.8.5            tcp dpt:995 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       100.99.16.0/24       10.16.8.5            tcp dpt:110 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       100.99.16.0/24       10.16.8.5            tcp dpt:443 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       100.99.16.0/24       10.16.8.5            tcp dpt:80 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       100.99.16.0/24       0.0.0.0/0            tcp dpt:443 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       100.99.16.0/24       0.0.0.0/0            tcp dpt:80 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            100.100.100.0/24     tcp dpt:443 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            100.100.100.0/24     tcp dpt:22 state NEW,ESTABLISHED
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            100.101.0.0/24       tcp dpt:443 state NEW,ESTABLISHED
+  211 17494 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:53 state NEW,ESTABLISHED
+    1    76 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:123 state NEW,ESTABLISHED
+   60  3600 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:443 state NEW,ESTABLISHED
+   44  2640 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:80 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:8080 state NEW,ESTABLISHED
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:194 state NEW,ESTABLISHED
+   28  1680 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           

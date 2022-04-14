@@ -11,8 +11,8 @@ all:
 
   vars:
     ansible_connection: ssh
-    ansible_user: user
-    ansible_password: password
+    ansible_user: root
+    ansible_password: Admin1Admin1
     ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
 
   children:

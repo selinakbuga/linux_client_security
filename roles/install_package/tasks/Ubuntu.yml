@@ -99,3 +99,6 @@
     - util-linux
     - uuid-runtime
     - python-apt-common
+    - xz-utils
+    - liblzma5
+    - gzip
