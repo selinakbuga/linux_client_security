@@ -1,0 +1,173 @@
+helpdesk | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+hermes | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 264K packets, 163M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 233K   28M DOCKER-USER  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 233K   28M DOCKER-ISOLATION-STAGE-1  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 DOCKER     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 docker0  0.0.0.0/0            0.0.0.0/0           
+ 369K   41M ACCEPT     all  --  *      br-e37643cc500b  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+37630 2257K DOCKER     all  --  *      br-e37643cc500b  0.0.0.0/0            0.0.0.0/0           
+ 189K   62M ACCEPT     all  --  br-e37643cc500b !br-e37643cc500b  0.0.0.0/0            0.0.0.0/0           
+ 2228  134K ACCEPT     all  --  br-e37643cc500b br-e37643cc500b  0.0.0.0/0            0.0.0.0/0           
+
+Chain OUTPUT (policy ACCEPT 282K packets, 69M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain DOCKER (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 3943  237K ACCEPT     tcp  --  !br-e37643cc500b br-e37643cc500b  0.0.0.0/0            172.18.0.2           tcp dpt:8000
+ 1670  100K ACCEPT     tcp  --  !br-e37643cc500b br-e37643cc500b  0.0.0.0/0            172.18.0.3           tcp dpt:9443
+ 3186  191K ACCEPT     tcp  --  !br-e37643cc500b br-e37643cc500b  0.0.0.0/0            172.18.0.6           tcp dpt:8000
+
+Chain DOCKER-ISOLATION-STAGE-1 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DOCKER-ISOLATION-STAGE-2  all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+48369 9864K DOCKER-ISOLATION-STAGE-2  all  --  br-e37643cc500b !br-e37643cc500b  0.0.0.0/0            0.0.0.0/0           
+ 233K   28M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-ISOLATION-STAGE-2 (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 DROP       all  --  *      br-e37643cc500b  0.0.0.0/0            0.0.0.0/0           
+48369 9864K RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-USER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 596K  105M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+mp-match | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 2130K packets, 1954M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+1485K 1857M DOCKER-USER  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+1485K 1857M DOCKER-ISOLATION-STAGE-1  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 DOCKER     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 docker0  0.0.0.0/0            0.0.0.0/0           
+1201K 1725M ACCEPT     all  --  *      br-e2fbb9024125  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+85425 5125K DOCKER     all  --  *      br-e2fbb9024125  0.0.0.0/0            0.0.0.0/0           
+ 199K  127M ACCEPT     all  --  br-e2fbb9024125 !br-e2fbb9024125  0.0.0.0/0            0.0.0.0/0           
+55581 3335K ACCEPT     all  --  br-e2fbb9024125 br-e2fbb9024125  0.0.0.0/0            0.0.0.0/0           
+
+Chain OUTPUT (policy ACCEPT 1745K packets, 1431M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain DOCKER (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+10477  629K ACCEPT     tcp  --  !br-e2fbb9024125 br-e2fbb9024125  0.0.0.0/0            172.18.0.2           tcp dpt:8000
+10020  601K ACCEPT     tcp  --  !br-e2fbb9024125 br-e2fbb9024125  0.0.0.0/0            172.18.0.3           tcp dpt:443
+ 9347  561K ACCEPT     tcp  --  !br-e2fbb9024125 br-e2fbb9024125  0.0.0.0/0            172.18.0.3           tcp dpt:80
+
+Chain DOCKER-ISOLATION-STAGE-1 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DOCKER-ISOLATION-STAGE-2  all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+ 199K  127M DOCKER-ISOLATION-STAGE-2  all  --  br-e2fbb9024125 !br-e2fbb9024125  0.0.0.0/0            0.0.0.0/0           
+1485K 1857M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-ISOLATION-STAGE-2 (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 DROP       all  --  *      br-e2fbb9024125  0.0.0.0/0            0.0.0.0/0           
+ 199K  127M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-USER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+1485K 1857M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+siem | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 4090K packets, 1335M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 3621K packets, 1840M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+www | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 1659K packets, 431M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DOCKER-USER  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 DOCKER-ISOLATION-STAGE-1  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 DOCKER     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 docker0  0.0.0.0/0            0.0.0.0/0           
+
+Chain OUTPUT (policy ACCEPT 1148K packets, 10G bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain DOCKER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain DOCKER-ISOLATION-STAGE-1 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DOCKER-ISOLATION-STAGE-2  all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-ISOLATION-STAGE-2 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-USER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+rms | CHANGED | rc=0 >>
+Chain INPUT (policy ACCEPT 2003K packets, 1352M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+1433K 1285M DOCKER-USER  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+1433K 1285M DOCKER-ISOLATION-STAGE-1  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 DOCKER     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  docker0 docker0  0.0.0.0/0            0.0.0.0/0           
+1144K 1146M ACCEPT     all  --  *      br-8be615fe9588  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+86381 5182K DOCKER     all  --  *      br-8be615fe9588  0.0.0.0/0            0.0.0.0/0           
+ 202K  134M ACCEPT     all  --  br-8be615fe9588 !br-8be615fe9588  0.0.0.0/0            0.0.0.0/0           
+56489 3389K ACCEPT     all  --  br-8be615fe9588 br-8be615fe9588  0.0.0.0/0            0.0.0.0/0           
+
+Chain OUTPUT (policy ACCEPT 1653K packets, 1440M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain DOCKER (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+10076  604K ACCEPT     tcp  --  !br-8be615fe9588 br-8be615fe9588  0.0.0.0/0            172.18.0.2           tcp dpt:443
+ 9349  561K ACCEPT     tcp  --  !br-8be615fe9588 br-8be615fe9588  0.0.0.0/0            172.18.0.2           tcp dpt:80
+10467  628K ACCEPT     tcp  --  !br-8be615fe9588 br-8be615fe9588  0.0.0.0/0            172.18.0.4           tcp dpt:8000
+
+Chain DOCKER-ISOLATION-STAGE-1 (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DOCKER-ISOLATION-STAGE-2  all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0           
+ 202K  134M DOCKER-ISOLATION-STAGE-2  all  --  br-8be615fe9588 !br-8be615fe9588  0.0.0.0/0            0.0.0.0/0           
+1433K 1285M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-ISOLATION-STAGE-2 (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 DROP       all  --  *      br-8be615fe9588  0.0.0.0/0            0.0.0.0/0           
+ 202K  134M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-USER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+1433K 1285M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
