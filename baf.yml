@@ -155,18 +155,18 @@ all:
 
   vars:
     ansible_connection: ssh
-    ansible_user: user
-    ansible_password: password
+    ansible_user: root
+    ansible_password: Admin1Admin1
     ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
 
   children:
     # Berylian Armed Forces - Air Defense System
     baf-ads:
       hosts:
-        mil-ads:
+        # mil-ads:
         c4i-ads:
         map-ads:
-        wpn-ads:
+        # wpn-ads:
 
     # Berylian Armed Forces - 5G Core
     baf-5gcn:
@@ -183,24 +183,24 @@ all:
         5gcn-webui:
         5gcn-amf:
         5gcn-upf-1:
-        5gcn-upf-2:
+        # 5gcn-upf-2:
 
     # Berylian Armed Forces - 5G User Equipment
     baf-5g-ue:
       hosts:
-        5g-ue01-1:
-        5g-ue01-2:
-        5g-ue02-1:
-        5g-ue02-2:
-        5g-ue03-1:
-        5g-ue03-2:
+        # 5g-ue01-1:
+        # 5g-ue01-2:
+        # 5g-ue02-1:
+        # 5g-ue02-2:
+        # 5g-ue03-1:
+        # 5g-ue03-2:
 
     # Berylian Armed Forces - Border Guard
     baf-bg-linux:
       hosts:
         baf-reports:
         bg-gsc:
-        radar-ads:
+        # radar-ads:
 
     baf-bg-windows:
       hosts:
@@ -267,7 +267,7 @@ all:
     # Berylian Armed Forces - 5G Radio Access Network
     baf-5g-ran:
       hosts:
-        5g-gNB:
+        # 5g-gNB:
 
     # Berylian Armed Forces - Linux Machines
     baf-linux:

@@ -1,0 +1,11 @@
+---
+- include: Ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'
+  tags: kernel
+
+- include: AlmaLinux.yml
+  when: ansible_distribution == 'AlmaLinux'
+  tags: kernel
+
+- name:
+  reboot:

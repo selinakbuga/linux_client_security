@@ -1,0 +1,26 @@
+---
+- get_url:
+    url: http://custom.16.berylia.org:9797/velociraptor_0.6.3_client.rpm
+    dest: /opt/velociraptor_0.6.3_client.rpm
+    mode: '0755'
+    timeout: 20
+
+# - name: Copy velociraptor rpm to machine
+#   copy:
+#     src: velociraptor_0.6.3_client.rpm
+#     dest: /opt/
+
+- name: Install rpm package.
+  yum:
+     name: /opt/velociraptor_0.6.3_client.rpm
+     state: present
+
+- name: Change permission of velociraptor_client
+  file:
+    path: /usr/local/bin/velociraptor_client
+    mode: '0755'
+
+- name: Restart velociraptor_client service
+  service:
+    name: velociraptor_client
+    state: restarted

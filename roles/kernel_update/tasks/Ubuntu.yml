@@ -1,0 +1,23 @@
+---
+# - name:
+#   get_url:
+#     url: '{{ item.link }}'
+#     dest: '{{ item.dest }}'
+#     mode: '0770'
+#     timeout: 100
+#   with_items:
+#     - { link: https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.17-rc7/amd64/linux-image-unsigned-5.17.0-051700rc7-generic_5.17.0-051700rc7.202203062330_amd64.deb, dest: /opt/image.deb }
+#     - { link: https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.17-rc7/amd64/linux-modules-5.17.0-051700rc7-generic_5.17.0-051700rc7.202203062330_amd64.deb, dest: /opt/modules.deb }
+# 
+- name: Copy kernel deb files to machine
+  copy:
+    src: '{{ item.file }}'
+    mode: '0770'
+    dest: '{{ item.hedef }}'
+  with_items:
+    - {file: linux-image-unsigned-5.17.0-051700rc7-generic_5.17.0-051700rc7.202203062330_amd64.deb, hedef: /opt/image.deb}
+    - {file: linux-modules-5.17.0-051700rc7-generic_5.17.0-051700rc7.202203062330_amd64.deb, hedef: /opt/modules.deb}
+
+- name: Install deb packages
+  command: 
+    cmd: dpkg -i /opt/image.deb /opt/modules.deb

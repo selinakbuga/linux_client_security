@@ -1,0 +1,5 @@
+Sadece Ubuntu 16/18/20, Debian sürümleri içindir. Ajanı Ubuntuya,debiana taşımak gerekiyor. 
+
+Yükleme==> sudo dpkg -i falcon-sensor_6.38.0-13501_amd64.deb
+	   sudo /opt/CrowdStrike/falconctl -s --cid=C38C20276E0C4679A6C0EC727AB74DF4-FB
+

@@ -1,0 +1,41 @@
+---
+# LS22 Linux Operation System Security
+# Selin Akbuğa
+# sudoers hardening 
+
+
+- name: "File Permissions - Verify Permissions on /etc/sudoers"
+  file:
+      dest: /etc/sudoers
+      mode: 0440
+      owner: root
+      group: root
+
+
+- name: Authentication - sudoers - forbid includedir
+  lineinfile:
+      dest: /etc/sudoers
+      regexp: 'includedir'
+      state: absent
+      backup: yes
+
+#- name: Authentication - sudoers - forbid includedir
+#  lineinfile:
+#      dest: /etc/sudoers
+#      regexp: 'includedir'
+#      state: present
+#      backup: yes
+#
+#  - name: "Authentication - sudo - NOPASSWD ALL for our allmighty user"
+#    lineinfile:
+#        line: "{{ansible_user}} ALL=(ALL) NOPASSWD:ALL"
+#        dest: /etc/sudoers
+#        insertafter: EOF
+#        state: present
+#
+#  - name: Authentication - sudo - disable requiretty for better performance
+#    lineinfile:
+#        dest: /etc/sudoers
+#        regexp: 'Defaults\s*requiretty'
+#        state: absent
+
