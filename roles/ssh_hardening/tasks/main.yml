@@ -1,0 +1,136 @@
+---
+#- name: "Authentication - SSH - Allow Users  login remotely"
+#  lineinfile:
+#      line: "AllowUsers scoringbot,gt,ls22sistem,ls22web,ls22sp,ls22bank,ls22th"
+#      dest: /etc/ssh/sshd_config
+#      state: present
+#- name: "Authentication - SSH - deny cannot login remotely"
+#  lineinfile:
+#      line: "DenyUsers {{deny_user}}"
+#      dest: /etc/ssh/sshd_config
+#      state: present
+
+- name: "Hardening - SSH - Set Permissions on /etc/ssh/sshd_config"
+  file:
+      dest: /etc/ssh/sshd_config
+      mode: 0600
+      owner: root
+      group: root
+
+- name: "Hardening - SSH - Set MaxAuthTries to 3"
+  lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: 'MaxAuthTries'
+      line: "MaxAuthTries 3"
+      state: present
+
+- name: "Hardening - SSH - Set IgnoreRhosts to Yes"
+  lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: 'IgnoreRhosts'
+      line: "IgnoreRhosts yes"
+      state: present
+
+#- name: "Hardening - SSH - Set Protocol to 2"
+#  lineinfile:
+#      dest: /etc/ssh/sshd_config
+#      regexp: '^Protocol'
+#      line: "Protocol 2"
+#      state: present
+#  notify:
+#    - Restart ssh-deb
+#    - Restart ssh-rh
+
+- name: "Hardening - SSH - Set LogLevel to INFO"
+  lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: 'LogLevel'
+      line: "LogLevel ERROR"
+      state: present
+  notify:
+    - Restart ssh-deb
+    - Restart ssh-rh
+
+- name: "Hardening - SSH - HostbasedAuthentication to No"
+  lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: 'HostbasedAuthentication'
+      line: "HostbasedAuthentication no"
+      state: present
+  notify:
+    - Restart ssh-deb
+    - Restart ssh-rh
+
+- name: "Hardening - SSH - Set PermitRootLogin to no"
+  lineinfile:
+      path: /etc/ssh/sshd_config
+      regexp: '^PermitRootLogin'
+      line: "PermitRootLogin no"
+      state: present
+  notify:
+    - Restart ssh-deb
+    - Restart ssh-rh
+
+- name: "Hardening - SSH - Set PermitEmptyPasswords to No"
+  lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: 'PermitEmptyPasswords'
+      line: "PermitEmptyPasswords no"
+      state: present
+  notify:
+    - Restart ssh-deb
+    - Restart ssh-rh
+
+- name: "Hardening - SSH - Do Not Allow Users to Set Environment Options"
+  lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: 'PermitUserEnvironment'
+      line: "PermitUserEnvironment no"
+      state: present
+  notify:
+    - Restart ssh-deb
+    - Restart ssh-rh
+
+  - name: "Hardening - SSH - Set Idle Timeout Interval for User Login"
+    lineinfile:
+        dest: /etc/ssh/sshd_config
+        regexp: 'ClientAliveInterval'
+        line: "ClientAliveInterval 30"
+        state: present
+    notify:
+      - Restart ssh-deb
+      - Restart ssh-rh
+
+- name: "Hardening - SSH - Set Idle Timeout Interval for User Login"
+  lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: 'ClientAliveCountMax'
+      line: "ClientAliveCountMax 5"      
+  state: present
+  notify:
+    - Restart ssh-deb
+    - Restart ssh-rh
+
+- name: "Hardening - SSH - Upload SSH Banner"
+  copy:
+      src: "../templates/banner.txt"
+      dest: "/etc/issue.net"
+      owner: root
+      group: root
+      mode: 0644
+      force: yes
+  failed_when: False
+  tags:
+    - banner
+
+- name: "Hardening - SSH - Set SSH Banner"
+  lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: 'Banner'
+      line: "Banner /etc/issue.net"
+      state: present
+  notify:
+    - Restart ssh-deb
+    - Restart ssh-rh
+  tags:
+    - banner
