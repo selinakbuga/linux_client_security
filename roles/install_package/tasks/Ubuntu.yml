@@ -1,9 +1,23 @@
 ---
-- name:
+- name: Update cache
   apt:
     update_cache: true
-    only_upgrade: true
-    name: '{{ item }}'
+
+# - name: Install packages
+#   apt:
+#     pkg: '{{ item }}'
+#     only_upgrade: true
+
+- name:
+  shell: uname -r
+  register: uname
+
+- name:
+  debug:
+    msg: '{{ uname.stdout_lines[0] }}'
+
+- name: Install packages
+  shell: sudo apt install --only-upgrade -y '{{ item }}'
   loop:
     - tcpdump
     - sudo
@@ -42,12 +56,12 @@
     - busybox-initramfs
     - busybox-static
     - linux-generic
-    # - linux-headers
+    - 'linux-headers-{{ uname.stdout_lines[0] }}'
     - linux-headers-generic
-    # - linux-image
+    - 'linux-image-{{ uname.stdout_lines[0] }}'
     - linux-image-generic
-    # - linux-modules
-    # - linux-modules-extra
+    - 'linux-modules-{{ uname.stdout_lines[0] }}'
+    - 'linux-modules-extra-{{ uname.stdout_lines[0] }}'
     - cpio
     - libgcrypt20
     - libpolkit-gobject-1-0
