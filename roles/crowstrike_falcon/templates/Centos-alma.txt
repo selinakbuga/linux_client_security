@@ -1,0 +1,2 @@
+Yükleme ==> sudo yum install falcon-sensor-6.38.0-13501.el8.x86_64.rpm
+	    sudo /opt/CrowdStrike/falconctl -s --cid=C38C20276E0C4679A6C0EC727AB74DF4-FB
