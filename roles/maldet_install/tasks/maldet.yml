@@ -1,0 +1,26 @@
+---
+# Selin AKbuğa 2021
+# İbrahim Arı Kubilay Tunç
+#
+
+- name: Create LMD's download dir
+  file:
+    path: /root/downloads/maldet
+    state: directory
+    recurse: yes
+
+- name: Maldet | download the Linux Malware Detect tar.gz file from rfxn.com
+  get_url:
+    url=http://www.rfxn.com/downloads/maldetect-current.tar.gz
+    dest="/root/downloads/maldetect-current.tar.gz"
+
+- name: Maldet | Unarchive copied package
+  unarchive:
+    src: /root/downloads/maldetect-current.tar.gz
+    dest: /root/downloads/maldet
+    extra_opts: [--strip-components=1]
+    copy: no
+
+- name: Maldet | Install Linux Malware Detect
+  shell: /root/downloads/maldet/install.sh chdir=/root/downloads/maldet/
+  changed_when: False
