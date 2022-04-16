@@ -5,6 +5,7 @@
 #package_managment           paketleri güncelle kernel güncelle paket kaldır. 
 #03_file_managment           dizin ve dosyaların permissions and owner group sıkılaştırmaları. linklenmiş dosyaların sıkılaştırmaları. paswordless user " yedekleri al"
 
+ipv6 erişimlerini gt ye aç. kontrolünü sağla
 
 ssh_hardening                ssh connections, root connection, password authentication no, max connect. , 
 alias_hardening	
