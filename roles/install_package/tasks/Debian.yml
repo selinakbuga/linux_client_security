@@ -1,0 +1,38 @@
+---
+- name: Update cache
+  apt:
+    update_cache: true
+
+- name:
+  shell: uname -r
+  register: uname
+
+- name:
+  debug:
+    msg: '{{ uname.stdout_lines[0] }}'
+
+- name: Install packages
+  shell: sudo apt install --only-upgrade -y '{{ item }}'
+  loop:
+    - tcpdump
+    - sudo
+    - linux-generic
+    - 'linux-headers-{{ uname.stdout_lines[0] }}'
+    - linux-headers-generic
+    - 'linux-image-{{ uname.stdout_lines[0] }}'
+    - linux-image-generic
+    - 'linux-modules-{{ uname.stdout_lines[0] }}'
+    - 'linux-modules-extra-{{ uname.stdout_lines[0] }}'
+    - libcryptsetup12
+    - libexpat1
+    - zlib1g
+    - eject
+    - fdisk
+    - libblkid1
+    - libfdisk1
+    - libmount1
+    - libsmartcols1
+    - libuuid1
+    - mount
+    - util-linux
+    - util-linux-locales
