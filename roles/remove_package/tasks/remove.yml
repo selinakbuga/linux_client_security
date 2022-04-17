@@ -1,0 +1,67 @@
+---
+- name: "Quick Fix - Disable {{ package }} - Debian-ish systems"
+  apt:
+    name: '{{ package }}'
+    state: absent
+    purge: yes
+#  ignore_errors: yes
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+  with_items:
+    - nis
+    - sudosh
+    - snoopy
+    - xinetd
+    - telnetd
+    - rsh-redone-server
+    - rsh-server
+    - tftpd-hpa
+    - atftpd
+    - yp-tools
+    - tftpd
+    - sudosh
+    - inetd
+    - ypserv
+    - telnet-server
+    - prelink
+    - telnet
+
+- name: "Quick Fix - Disable {{ package }} - Redhat-ish systems"
+  yum:
+    name: '{{ package }}'
+    state: absent
+    purge: yes
+#  ignore_errors: yes
+  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux', 'Scientific']
+  with_items:
+    - nis
+    - sudosh
+    - snoopy
+    - xinetd
+    - telnetd
+    - rsh-redone-server
+    - rsh-server
+    - tftpd-hpa
+    - atftpd
+    - yp-tools
+    - tftpd
+    - sudosh
+    - inetd
+    - ypserv
+    - telnet-server
+    - prelink
+    - telnet
+
+- name: Remove dependencies that are no longer required
+  apt:
+    autoremove: yes
+
+- name: Remove useless packages from the cache
+  apt:
+    autoclean: yes
+
+- name: Remove dependencies that are no longer required
+  apt:
+    autoremove: yes
+
+- name: Apt - Removes all packages from the package cache
+  command: apt-get clean

@@ -1,0 +1,18 @@
+package:
+ - nis
+ - sudosh
+ - snoopy
+ - xinetd
+ - telnetd
+ - rsh-redone-server
+ - rsh-server
+ - tftpd-hpa
+ - atftpd
+ - yp-tools
+ - tftpd
+ - sudosh
+ - inetd
+ - ypserv
+ - telnet-server
+ - prelink
+ - telnet
