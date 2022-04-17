@@ -24,3 +24,15 @@
 - name: Maldet | Install Linux Malware Detect
   shell: /root/downloads/maldet/install.sh chdir=/root/downloads/maldet/
   changed_when: False
+
+- name : MAldet | inotify-tools install
+  yum:
+    name: inotify-tools
+    state: present
+  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux', 'Scientific']
+
+- name : MAldet | inotify-tools install 
+  apt: 
+    name: inotify-tools
+    state: present
+  when: ansible_distribution in ['Debian', 'Ubuntu']
