@@ -1,4 +1,19 @@
 ---
 - name:
   yum:
-
+    update_only: true
+    name: '{{ item }}'
+  loop:
+    - kernel
+    - kernel-core
+    - kernel-modules
+    - kernel-tools-libs
+    - python3-perf
+    - libgcc
+    - libgomp
+    - libstdc++
+    - openssl
+    - openssl-libs
+    - audit
+    - sudo
+    - tcpdump
