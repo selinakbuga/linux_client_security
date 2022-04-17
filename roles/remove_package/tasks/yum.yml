@@ -23,6 +23,7 @@
     - telnet-server
     - prelink
     - telnet
+    - cockpit
 
 #- name: Remove dependencies that are no longer required
 #  yum:
@@ -54,3 +55,4 @@
     - telnet-server
     - prelink
     - telnet
+    - cockpit
