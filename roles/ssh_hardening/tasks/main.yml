@@ -31,15 +31,15 @@
       line: "IgnoreRhosts yes"
       state: present
 
-#- name: "Hardening - SSH - Set Protocol to 2"
-#  lineinfile:
-#      dest: /etc/ssh/sshd_config
-#      regexp: '^Protocol'
-#      line: "Protocol 2"
-#      state: present
-#  notify:
-#    - Restart ssh-deb
-#    - Restart ssh-rh
+- name: "Hardening - SSH - Set Protocol to 2"
+  lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: '^Protocol'
+      line: "Protocol 2"
+      state: present
+  notify:
+    - Restart ssh-deb
+    - Restart ssh-rh
 
 - name: "Hardening - SSH - Set LogLevel to INFO"
   lineinfile:
