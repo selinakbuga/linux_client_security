@@ -2,7 +2,7 @@
 - name:
   blockinfile:
     path: /etc/audit/rules.d/audit.rules
-    marker: '### Kullanici Tanimli Audit Kurallari ###'
+    marker: "### {mark} Kullanici Tanimli Audit Kurallari ###"
     state: present
     block: |
             -a always,exit -F path=/usr/bin/at -F auid!=unset -F key=privileged
@@ -21,7 +21,6 @@
             -a always,exit -F path=/usr/sbin/postqueue -F auid!=unset -F key=privileged
             -w /sbin/rmmod -p x -k modules
             -a always,exit -F path=/usr/bin/ssh-agent -F perm=x -F auid!=unset -k privileged-ssh-agent
-            -a always,exit -F path=/usr/lib/openssh/ssh-keysign -F auid!=unset -F key=privileged
             -a always,exit -F path=/usr/bin/su -F perm=x -F auid!=unset -F key=privileged
             -a always,exit -F path=/usr/bin/sudo -F auid!=unset -F key=privileged
             -a always,exit -F path=/usr/bin/sudoedit -F auid!=unset -F key=privileged
@@ -40,3 +39,11 @@
     path: /etc/audisp/plugins.d/syslog.conf
     regexp: '^active'
     line: 'active = yes'
+
+- name: Restart audit and syslog services
+  service:
+    name: '{{ item }}'
+    state: restarted
+  loop:
+    - auditd
+    - syslog
