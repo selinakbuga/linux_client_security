@@ -7,12 +7,12 @@
 #              state=present
 
 
-- name: Quick Fix - Disable root login via ssh via password
-  lineinfile: 
-      path=/etc/ssh/sshd_config
-      regexp='^$PermitRootLogin.+?$'
-      line='PermitRootLogin no'
-      state=present
+#- name: Quick Fix - Disable root login via ssh via password
+#  lineinfile: 
+#      path=/etc/ssh/sshd_config
+#      regexp='^$PermitRootLogin.+?$'
+#      line='PermitRootLogin no'
+#      state=present
 
 #- name: Disable password login user
 #  lineinfile:
