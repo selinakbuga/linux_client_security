@@ -1,6 +1,6 @@
-#00_user_change_password     root parolasını değiştirme
-#01_user_managment           kullanıcıları oluşturma(user-group-home-keys-rooterişimikapatma-parolasız root olmak)
-#02_quick_env_info           ls22sistembackupfoleroluşturma-etc altındaki dosyaların yedeğini alma- key yedek alma- sudoers dosya yedeğinialma- PAKETLERİN YEDEĞİNİ "AL"
+#00_user_change_password     root ile çalıştır. root parolasını değiştirme
+#01_user_managment           root ile çalıştır. kullanıcıları oluşturma(user-group-home-keys-rooterişimikapatma-parolasız root olmak)
+#02_quick_env_info           root ile çalıştır ls22sistembackupfoleroluşturma-etc altındaki dosyaların yedeğini alma- key yedek alma- sudoers dosya yedeğinialma- PAKETLERİN YEDEĞİNİ "AL"
 #03                          crowstrike_falcon velociraptor McAfee yükleme "CONF DOSYASININ YEDEĞİ ALINABİLİR Mİ"
 #package_managment           paketleri güncelle kernel güncelle paket kaldır. 
 #03_file_managment           dizin ve dosyaların permissions and owner group sıkılaştırmaları. linklenmiş dosyaların sıkılaştırmaları. paswordless user " yedekleri al"
@@ -15,9 +15,9 @@ terminal_hardening           history, ss, nyancat, unicorn vb terminal manipulat
 cronjob_contol.yml
 audit_hardening.yml         adnan bey tamamlandı
 sourcelist_control.yml      adnan bey 
-
+suid_guid_hardening         backups dosyasını oluştur. suid ve guid olanalrı buraya yedekle. nogroup olanalrı yedekle. tehlikeli dosyalarda suid guid olabilecek dosyalardan çıkar.
 
 log4j emirbey adnan bey
 selinux şimdilik askıda
 ipv6 kontrolü
-suid guid selin
+
