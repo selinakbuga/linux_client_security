@@ -104,3 +104,4 @@
     - xz-utils
     - liblzma5
     - gzip
+    - net-tools

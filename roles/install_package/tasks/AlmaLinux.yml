@@ -18,3 +18,4 @@
     - tcpdump
     - audit
     - audispd-plugins
+    - net-tools

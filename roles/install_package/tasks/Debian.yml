@@ -38,3 +38,4 @@
     - mount
     - util-linux
     - util-linux-locales
+    - net-tools
