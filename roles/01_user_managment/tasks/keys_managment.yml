@@ -1,27 +1,27 @@
 ---
 ####### ansible_user .ssh managment
 
-- name: "Access - Upload Public ssh key - correct folder needs to be in place {{ansible_user}}"
+- name: "Access - Upload Public ssh key - correct folder needs to be in place {{secops_user}}"
   file:
       state: directory
-      path: "/home/{{ansible_user}}/.ssh"
+      path: "/home/{{secops_user}}/.ssh"
       recurse: yes
-      owner: "{{ansible_user}}"
-      group: "{{ansible_user}}"
+      owner: "{{secops_user}}"
+      group: "{{secops_user}}"
       mode: "0700"
 
-- name: "Access - Push Public ssh key {{ansible_user}}"
+- name: "Access - Push Public ssh key {{secops_user}}"
   authorized_key:
-      user: "{{ansible_user}}"
+      user: "{{secops_user}}"
       state: present
       key: "{{ lookup('file', '../templates/ls22sistem.pub') }}"
 
-#- name: "Access - Push Public ssh key {{ansible_user}}"
+#- name: "Access - Push Public ssh key {{secops_user}}"
 #  copy:
 #      src: "../templates/ls22sistem.pub"
-#      dest: "/home/{{ansible_user}}/.ssh/"
-#      owner: "{{ansible_user}}"
-#      group: "{{ansible_user}}"
+#      dest: "/home/{{secops_user}}/.ssh/"
+#      owner: "{{secops_user}}"
+#      group: "{{secops_user}}"
 #      mode: "0600"
 
 
