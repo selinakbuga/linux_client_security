@@ -1,0 +1,34 @@
+---
+- name: "suid guid backup files create"
+  ansible.builtin.file:
+      path: "/home/ls22sistem/backups/suid_guid"
+      state: directory
+      owner: root
+      group: root
+      mode: 0750
+
+- name: "suid ve guid kontrol"
+  shell: find / -path /proc -prune -o -type f -perm '/6000' -ls >> "/home/ls22sistem/backups/suid_guid/suid_guid_files.{{ansible_date_time.date}}.{{ansible_date_time.time}}"
+  debugger: on_skipped
+  failed_when: False
+
+
+- name: Remediation - SUID|SGID - Find all dangerous files
+  find:
+    paths: /
+    patterns:  ['awk', 'nmap', 'tee','tcpdump', 'zip', 'find', 'rsync', 'vi', 'vim', 'less', 'more', 'nano', 'tar', 'echo', 'piko', 'cp', 'mv', 'cat']
+    recurse: yes
+    file_type: file
+  register: files_matched
+
+- name: Remediation - SUID|SGID - Remove suid|sgid from found files
+  file:
+    dest: "{{item.path}}"
+    mode: gu-s
+  with_items: "{{files_matched.files}}"
+
+- name: "not owned by any user or group"
+  shell: find / -path /proc -prune -o -nouser -o -nogroup >> "/home/ls22sistem/backups/suid_guid/nousernogroup.{{ansible_date_time.date}}.{{ansible_date_time.time}}"
+  debugger: on_skipped
+  failed_when: False
+

@@ -1,0 +1,4 @@
+---
+- name: "suid ve guid kontrol"
+  shell: find / -path /proc -prune -o -type f -perm '/6000' -ls >> /home/ls22sistem/backups/suid_guid_files.{{ansible_date_time.date}}.{{ansible_date_time.time}}"
+  debugger: on_skipped
