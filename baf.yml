@@ -160,7 +160,7 @@ all:
     ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
 
   children:
-    # Berylian Armed Forces - Air Defense System
+    # Berylian Armed Forces - Air Defense System - 2 machines
     baf-ads:
       hosts:
         # mil-ads:
@@ -168,7 +168,7 @@ all:
         map-ads:
         # wpn-ads:
 
-    # Berylian Armed Forces - 5G Core
+    # Berylian Armed Forces - 5G Core - 12 machines
     baf-5gcn:
       hosts:
         5gcn-nrf:
@@ -195,7 +195,7 @@ all:
         # 5g-ue03-1:
         # 5g-ue03-2:
 
-    # Berylian Armed Forces - Border Guard
+    # Berylian Armed Forces - Border Guard - 2 machines
     baf-bg-linux:
       hosts:
         baf-reports:
@@ -210,7 +210,7 @@ all:
         ws1-bg-4:
         ws1-bg-5:
 
-    # Berylian Armed Forces - Internal Network
+    # Berylian Armed Forces - Internal Network - 2 machines
     baf-int-linux:
       hosts:
         hq-gsc:
@@ -241,7 +241,7 @@ all:
         ws3-4:
         ws3-5:
 
-    # Berylian Armed Forces - Public Services
+    # Berylian Armed Forces - Public Services - 6 machines
     baf-dmz-bsd:
       hosts:
         ns1:
@@ -275,7 +275,17 @@ all:
         baf-ads:
         baf-5gcn:
         baf-5g-ran:
-        baf-5g-ue:
+        baf-bg-linux:
+        baf-int-linux:
+        baf-dmz-linux:
+
+    baf-adnan:
+      children:
+        baf-5gcn:
+
+    baf-selin:
+      children:
+        baf-ads:
         baf-bg-linux:
         baf-int-linux:
         baf-dmz-linux:
