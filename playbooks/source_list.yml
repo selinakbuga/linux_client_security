@@ -1,0 +1,8 @@
+---
+- name: Install packages
+  hosts: baf-linux
+  become: true
+  gather_facts: yes
+
+  roles:
+    - ../roles/source_list

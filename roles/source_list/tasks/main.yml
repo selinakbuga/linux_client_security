@@ -1,0 +1,78 @@
+---
+- name: Backup source.list file
+  copy:
+    src: /etc/apt/sources.list
+    dest: /etc/apt/sources.list.old
+    force: false
+    remote_src: true
+  tags: generate_sources
+  when: ansible_distribution in ['Ubuntu', 'Debian']
+
+- name: Get Ubuntu version
+  shell: cat /etc/os-release | grep VERSION_CODE | cut -d"=" -f 2
+  register: versions
+  tags: generate_sources
+  when: ansible_distribution in ['Ubuntu', 'Debian']
+
+- name: Remove sources.list file
+  file:
+    path: /etc/apt/sources.list
+    state: absent
+  tags: generate_sources
+  when: ansible_distribution in ['Ubuntu', 'Debian']
+
+- name: Create a new sources.list file
+  file:
+    path: /etc/apt/sources.list
+    state: touch
+    mode: u=rw,g=rw,o=r
+    owner: root
+    group: root
+  tags: generate_sources
+  when: ansible_distribution in ['Ubuntu', 'Debian']
+
+- name: Insert items into sources.list file
+  blockinfile:
+    marker: "# {mark} ANSIBLE MANAGED BLOCK"
+    path: /etc/apt/sources.list
+    block: |
+      deb http://archive.ubuntu.com/ubuntu/ {{ versions.stdout_lines[0] }} main restricted universe multiverse
+      deb-src http://archive.ubuntu.com/ubuntu/ {{ versions.stdout_lines[0] }} main restricted universe multiverse
+      
+      deb http://archive.ubuntu.com/ubuntu/ {{ versions.stdout_lines[0] }}-updates main restricted universe multiverse
+      deb-src http://archive.ubuntu.com/ubuntu/ {{ versions.stdout_lines[0] }}-updates main restricted universe multiverse
+      
+      deb http://archive.ubuntu.com/ubuntu/ {{ versions.stdout_lines[0] }}-security main restricted universe multiverse
+      deb-src http://archive.ubuntu.com/ubuntu/ {{ versions.stdout_lines[0] }}-security main restricted universe multiverse
+      
+      deb http://archive.ubuntu.com/ubuntu/ {{ versions.stdout_lines[0] }}-backports main restricted universe multiverse
+      deb-src http://archive.ubuntu.com/ubuntu/ {{ versions.stdout_lines[0] }}-backports main restricted universe multiverse
+      
+      deb http://archive.canonical.com/ubuntu {{ versions.stdout_lines[0] }} partner
+      deb-src http://archive.canonical.com/ubuntu {{ versions.stdout_lines[0] }} partner
+  tags: generate_sources
+  when: ansible_distribution in ['Ubuntu']
+
+- name: Insert items into sources.list file
+  blockinfile:
+    marker: "# {mark} ANSIBLE MANAGED BLOCK"
+    path: /etc/apt/sources.list
+    block: |
+      deb http://deb.debian.org/debian {{ versions.stdout_lines[0] }} main contrib non-free
+      deb-src http://deb.debian.org/debian {{ versions.stdout_lines[0] }} main contrib non-free
+      
+      deb http://deb.debian.org/debian-security/ {{ versions.stdout_lines[0] }}-security main contrib non-free
+      deb-src http://deb.debian.org/debian-security/ {{ versions.stdout_lines[0] }}-security main contrib non-free
+      
+      deb http://deb.debian.org/debian {{ versions.stdout_lines[0] }}-updates main contrib non-free
+      deb-src http://deb.debian.org/debian {{ versions.stdout_lines[0] }}-updates main contrib non-free
+  tags: generate_sources
+  when: ansible_distribution in ['Debian']
+
+- name: Restore sources.list
+  copy:
+    src: /etc/apt/sources.list.old
+    dest: /etc/apt/sources.list
+    remote_src: true
+  tags: restore_sources
+  when: ansible_distribution in ['Ubuntu', 'Debian']
