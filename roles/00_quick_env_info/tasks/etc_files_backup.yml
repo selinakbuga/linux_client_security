@@ -39,12 +39,34 @@
     backup: yes
     remote_src: yes
 
+- name: Copy a gshadow directory
+  ansible.builtin.copy:
+    src: /etc/gshadow
+    dest: /home/ls22sistem/backups/
+    owner: root
+    group: root
+    mode: 0640
+    backup: yes
+    remote_src: yes
+
+- name: Copy a aliases directory
+  ansible.builtin.copy:
+    src: /etc/aliases
+    dest: /home/ls22sistem/backups/
+    owner: root
+    group: root
+    mode: 0640
+    backup: yes
+    remote_src: yes
+
+
 - name: Copy a cron directory
   ansible.builtin.copy:
-    src: /etc/cron         
+    src: /etc/crontab         
     dest: /home/ls22sistem/backups/           
     owner: root
     group: root
+    mode: 0640
     backup: yes
     remote_src: yes
 
