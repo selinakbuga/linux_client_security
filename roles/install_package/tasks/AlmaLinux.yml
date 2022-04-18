@@ -19,3 +19,4 @@
     - audit
     - audispd-plugins
     - net-tools
+    - rsyslog

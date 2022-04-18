@@ -39,11 +39,20 @@
     path: /etc/audisp/plugins.d/syslog.conf
     regexp: '^active'
     line: 'active = yes'
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: Ansible replace string example
+  lineinfile:
+    path: /etc/audit/plugins.d/syslog.conf
+    regexp: '^active'
+    line: 'active = yes'
+  when: ansible_distribution in ['RedHat', 'AlmaLinux', 'Scientific']
 
 - name: Restart audit and syslog services
   service:
     name: '{{ item }}'
     state: restarted
+    use: service
   loop:
     - auditd
     - syslog
