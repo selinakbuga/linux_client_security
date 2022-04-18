@@ -1,5 +1,5 @@
 ---
-ansible_user: ls22sistem
+secops_user: root
 web_user: ls22web
 th_user: ls22th
 
