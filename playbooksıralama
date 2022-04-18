@@ -8,10 +8,10 @@
 ipv6 erişimlerini gt ye aç. kontrolünü sağla
 
 ssh_hardening                ssh connections, root connection, password authentication no, max connect. , 
-alias_hardening	
+alias_hardening	              erkan bey
 sudo_hardening               ser permissions - passwordless change root - include dir disable
 userfile_hardening           home directroy - sudo group- shadow - having group number 0
 terminal_hardening           history, ss, nyancat, unicorn vb terminal manipulation
 cronjob_contol.yml
-audit_hardening.yml
-sourcelist_control.yml
+audit_hardening.yml         adnan bey tamamlandı
+sourcelist_control.yml      adnan bey 
