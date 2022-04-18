@@ -74,4 +74,5 @@
 - name: "rkhunter testing backup files "
   shell: sudo rkhunter -C
   shell: sudo rkhunter --checkall -sk >> /home/ls22sistem/backups/rkhunter
+  debugger: on_skipped
   failed_when: False
