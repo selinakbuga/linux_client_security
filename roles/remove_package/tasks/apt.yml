@@ -25,6 +25,7 @@
     - telnet-server
     - prelink
     - telnet
+    - cockpit
 
 - name: Remove useless packages from the cache
   apt:

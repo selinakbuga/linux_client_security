@@ -1,0 +1,2 @@
+---
+- include: lynis_install.yml

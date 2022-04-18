@@ -1,0 +1,77 @@
+---
+- name: "install rkhunter debianish"
+  apt:
+    name: rkhunter
+    state: present
+    update_cache: yes
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+
+#- name: "Reconnaissance - Upload rkhunter.conf debianish"
+#  copy:
+#      src: "../templates/rkhunter.conf"
+#      dest: "/etc/rkhunter.conf"
+#      owner: root
+#      group: root
+#      mode: 0640
+#      force: yes
+#      remote_src: yes
+#  failed_when: False
+#  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+#- name: "Reconnaissance - Upload rkhunter.conf debianish"
+#  copy:
+#      src: "../templates/rkhunter"
+#      dest: "/etc/default/rkhunter"
+#      owner: root
+#      group: root
+#      mode: 0640
+#      force: yes
+#      remote_src: yes
+#  failed_when: False
+#  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: "install rkhunter redhatish OS"
+  yum:
+    name: rkhunter
+    state: present
+    update_cache: yes
+  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux', 'Scientific']
+
+
+- name: "Reconnaissance - Upload rkhunter.conf debianish"
+  copy:
+      src: "../templates/rkhunter.conf"
+      dest: "/etc/rkhunter.conf"
+      owner: root
+      group: root
+      mode: 0640
+      force: yes
+      remote_src: yes
+  failed_when: False
+#  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: "Reconnaissance - Upload rkhunter.conf debianish"
+  copy:
+      src: "../templates/rkhunter"
+      dest: "/etc/default/rkhunter"
+      owner: root
+      group: root
+      mode: 0640
+      force: yes
+      remote_src: yes
+  failed_when: False
+#  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: " rkhunter create file"
+  ansible.builtin.file:
+      path: "/home/ls22sistem/backups/rkhunter"
+      state: touch
+      owner: root
+      group: root
+      mode: 0640
+
+- name: "rkhunter testing backup files "
+  shell: sudo rkhunter -C
+  shell: sudo rkhunter --checkall -sk >> /home/ls22sistem/backups/rkhunter
+  failed_when: False

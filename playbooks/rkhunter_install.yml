@@ -1,0 +1,7 @@
+---
+- hosts: baf
+  gather_facts: yes
+  become: True
+  become_user: root
+  roles:
+    - role: rkhunter_install
