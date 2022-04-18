@@ -1,5 +1,5 @@
 ---
-ansible_user: ls22sistem
+secops_user: ls22sistem
 web_user: ls22web
 th_user: ls22th
 sp_user: ls22sp
@@ -10,8 +10,8 @@ bank_user: ls22bank
 #admin_new_password: Parslan123!!
 
 #keys_directory: "../templates/" Ahtapot123!! all users password
-deb_ansible_pass: $6$9G5p7kC1rrY0/3ZZ$NZtAd4/AfqQtxBCyeQ7gyPf1n8YYlUCOutZ84ZECCtNvUwodAfGOrzbkUVzKwf.K/N7Oh08U7AV8HDMj5MfHT.
-yum_ansible_pass: $6$arQ6nh1bzG0X8Sgk$eL7j.HtnTlWW0HjJ3D4gS8iLNFA/EGSMOK1gbxAiQqUDUJkaHrTMM9wNATVK7Vdyktj7a74yE.9IlSWBgQ6i70
+deb_secops_pass: $6$9G5p7kC1rrY0/3ZZ$NZtAd4/AfqQtxBCyeQ7gyPf1n8YYlUCOutZ84ZECCtNvUwodAfGOrzbkUVzKwf.K/N7Oh08U7AV8HDMj5MfHT.
+yum_secops_pass: $6$arQ6nh1bzG0X8Sgk$eL7j.HtnTlWW0HjJ3D4gS8iLNFA/EGSMOK1gbxAiQqUDUJkaHrTMM9wNATVK7Vdyktj7a74yE.9IlSWBgQ6i70
 
 deb_web_pass: $6$LiZ2SRq/P8Is3DPx$LtPub1TsgGyf6B0ucvIa5u/NeZzjLBTByjEMdbiFHZHpxxdAIiw3nd80jvYRa.4/ZNd43/n23ABZz/CyepdIa/ #Ahtapot123!!
 yum_web_pass: $6$3TMYknw4BlljSdkJ$tdnFTBTaozkqvDcYH0sbvUVWT9PwiD5aymJtWXPx00QXYggCzP3AD3.MDB57fzcCxydrq7x4.P1QmSGWuuQ9p/ #Ahtapot123!!
