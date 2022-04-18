@@ -1,5 +1,5 @@
 ---
-- hosts: baf
+- hosts: all
   gather_facts: yes
   become: True
   become_user: root
