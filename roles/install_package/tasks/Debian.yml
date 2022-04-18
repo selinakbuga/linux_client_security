@@ -14,6 +14,8 @@
 - name: Install packages
   shell: sudo apt install --only-upgrade -y '{{ item }}'
   loop:
+    - auditd
+    - audispd-plugins
     - tcpdump
     - sudo
     - linux-generic
@@ -36,3 +38,4 @@
     - mount
     - util-linux
     - util-linux-locales
+    - net-tools

@@ -14,6 +14,9 @@
     - libstdc++
     - openssl
     - openssl-libs
-    - audit
     - sudo
     - tcpdump
+    - audit
+    - audispd-plugins
+    - net-tools
+    - rsyslog
