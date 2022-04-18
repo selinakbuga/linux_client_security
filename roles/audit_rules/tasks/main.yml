@@ -34,3 +34,9 @@
 
 - name:
   shell: sudo augenrules --load
+
+- name: Ansible replace string example
+  lineinfile:
+    path: /etc/audisp/plugins.d/syslog.conf
+    regexp: '^active'
+    line: 'active = yes'
