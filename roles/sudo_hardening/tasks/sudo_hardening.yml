@@ -28,7 +28,7 @@
 #
 #  - name: "Authentication - sudo - NOPASSWD ALL for our allmighty user"
 #    lineinfile:
-#        line: "{{ansible_user}} ALL=(ALL) NOPASSWD:ALL"
+#        line: "{{secops_user}} ALL=(ALL) NOPASSWD:ALL"
 #        dest: /etc/sudoers
 #        insertafter: EOF
 #        state: present
