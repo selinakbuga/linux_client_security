@@ -3,36 +3,36 @@
 # Selin Akbuğa
 # Configure basics of linux machines: users, passwords, home file permissions, ssh key directory
 
-- name: "Setup - Create group {{ansible_user}}"
+- name: "Setup - Create group {{secops_user}}"
   group:
-      name: "{{ansible_user}}"
+      name: "{{secops_user}}"
 
-- name: "Setup - Create user {{ansible_user}} (Debian-ish)"
+- name: "Setup - Create user {{secops_user}} (Debian-ish)"
   user:
-      name: "{{ansible_user}}"
-      groups: "{{ansible_user}},sudo"
+      name: "{{secops_user}}"
+      groups: "{{secops_user}},sudo"
       append: yes
       shell: /bin/bash
       createhome: yes
 #      password: "{{ 'Ahtapot123!!' |password_hash( 'sha512') }}"
-      password: "{{deb_ansible_pass}}"
+      password: "{{deb_secops_pass}}"
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
-- name: "Setup - Create user {{ansible_user}} (RedHat-ish)"
+- name: "Setup - Create user {{secops_user}} (RedHat-ish)"
   user:
-      name: "{{ansible_user}}"
-      groups: "{{ansible_user}},wheel"
+      name: "{{secops_user}}"
+      groups: "{{secops_user}},wheel"
       append: yes
       shell: /bin/bash
       createhome: yes
       home: /home/{{ansible_user}}
 #      password: "{{ 'Ahtapot123!!' |password_hash( 'sha512') }}"
-      password: "{{yum_ansible_pass}}"
+      password: "{{yum_secops_pass}}"
   when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux']
 
-- name: "Recursively change ownership of a {{ansible_user}} home directory"
+- name: "Recursively change ownership of a {{secops_user}} home directory"
   file:
-      path: "/home/{{ansible_user}}"
+      path: "/home/{{secops_user}}"
       state: directory
       recurse: yes
       owner: "{{ansible_user}}"
