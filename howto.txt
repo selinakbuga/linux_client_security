@@ -1,0 +1,11 @@
+Ansible hakkında:
+
+1) yml uzantılı inventory dosyalarımızın en üstünde bütün makinelerin isimlerini ve IP adreslerini içeren tanımlamalar mevcut. Bu tanımlar bitince hepsi için geçerli olan değişkenlerin yazılı olduğu kısımla karşılaşırız. Sonrasında bu makineleri topolojideki gibi gruplara ayırarak, bazı gruplara yukarıda tanımladığımız host isimlerini, bazı gruplara da diğer grup isimlerini içerecek şekilde tanımlama yapılabilir.
+
+2) Playbook çalıştırmak istediğiniz host veya grup isimlerini yml uzantılı playbook dosyası içerisinde hosts: hostname ya da hosts: groupname olarak belirterek çalıştırabiliriz.
+
+3) yml uzantılı playbook dosyalarının içerisindeki hosts kısmını all yaptıktan sonra yazmış olduğunu playbook sadece belli bir grup ya da host için çalışsın istiyorsanız en sonuna --limit hostname ya da --limit groupname şekilde parametre verebilirsiniz:
+	ansible-playbook -i baf.yml playbooks/audit_rules --limit baf-dmz-linux
+
+4) Yazmış olduğunuz playbook dosyasını genel hatlarıyla kontrol etmek isterseniz ansible-playbook komutunun sonuna --check parametresini ekleyebilirsiniz. Bu parametre eklendikten sonra birbirine bağlı tasklar çalışırken hata alınması normaldir. Örneğin üstteki tasklardan birisinde .deb uzantılı dosyayı indirmek istiyorsanız, check moduna sadece bu kural test edileceği için dosya indirilmeyecektir ve kendisinden sonra gelebilecek yükleme taskı deneme aşamasında başarısız olacaktır. Playbook sözdizimini kontrol etmek için kullanılabilir.
+
