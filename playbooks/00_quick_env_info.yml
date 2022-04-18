@@ -3,7 +3,5 @@
   gather_facts: yes
   become: True
   become_user: root
-  vars_files:
-   - ../roles/00_quick_env_info/vars/00_quick_env_info.yml
   roles:
     - role: 00_quick_env_info
