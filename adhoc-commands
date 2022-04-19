@@ -1,0 +1,4 @@
+Bir komutu birden çok makinede çalıştırmak için aşağıdaki örnek kullanılabilir:
+	ansible bob-linux -i bob.yml -m shell -a "tail -n 3 /etc/rsyslog.conf"
+
+bob-linux komutun çalışacağı ve inventory içinde tanımlanmış grubu, bob.yml bu inventory dosyasının ismini, -m shell ifade shell modülü kullanılacağını ve -a parametresi de kendisinden sonra shell komutu geleceğini gösterir.
