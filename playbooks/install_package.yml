@@ -5,4 +5,4 @@
   gather_facts: yes
 
   roles:
-    - ../roles/install_package
+    - role: ../roles/audit_rules
