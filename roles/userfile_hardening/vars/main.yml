@@ -1,0 +1,6 @@
+---
+#ansible_ssh_user: root
+#ansible_ssh_pass: deneme #Admin1Admin1
+ansible_user: ls22sistem
+web_user: ls22web
+th_user: ls22th
