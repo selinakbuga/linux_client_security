@@ -1,0 +1,17 @@
+---
+- name: "Quick Fix - Disable {{ package }} - Redhat-ish systems"
+  yum:
+    name: cockpit
+    state: absent
+    autoremove: true
+  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux', 'Scientific']
+
+- name: YUM - Removes all packages from the package cache
+  command: yum clean all
+  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux', 'Scientific']
+  ignore_errors: true
+
+- name: hardening delete conf file
+  command: yum remove -y cockpit
+  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux', 'Scientific']
+  ignore_errors: true

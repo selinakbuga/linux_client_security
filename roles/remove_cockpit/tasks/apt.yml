@@ -1,0 +1,24 @@
+---
+- name: "Quick Fix - Disable cockpit - Debian-ish systems"
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+  apt:
+    name: cockpit
+    state: absent
+    purge: yes
+  ignore_errors: yes
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+    - cockpit
+
+- name: Remove useless packages from the cache
+  apt:
+    autoclean: yes
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: Remove dependencies that are no longer required
+  apt:
+    autoremove: yes
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: Apt - Removes all packages from the package cache
+  command: apt-get clean
+  when: ansible_distribution in ['Debian', 'Ubuntu']
