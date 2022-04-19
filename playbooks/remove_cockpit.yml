@@ -1,0 +1,9 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: True
+  become_user: root
+
+  roles:
+    - role: ../roles/remove_cockpit
+
