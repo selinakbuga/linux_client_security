@@ -1,0 +1,30 @@
+---
+#- name: "install lynis"
+#  apt:
+#    name: lynis
+#    state: present  
+#    update_cache: yes
+#  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: "create /usr/local/lynis directory"
+  file:
+      path: "/usr/local/lynis/"
+      state: directory
+      recurse: yes
+      owner: root
+      group: root
+      mode: "0750"
+
+- name: "download lynis"
+  shell: mkdir -p /usr/local/lynis
+  shell: wget -O /usr/local/lynis/lynis-3.0.7.tar.gz https://cisofy.com/files/lynis-3.0.7.tar.gz
+
+- name: " lynis-3.0.7 extract arşiv"
+  ansible.builtin.unarchive:
+    src: /usr/local/lynis/lynis-3.0.7.tar.gz
+    dest: /usr/local/lynis/
+    remote_src: yes
+
+
+#  shell: tar -zxvf /usr/local/lynis/lynis-3.0.7.tar.gz -C /usr/local/lynis/
+#  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux', 'Scientific']
