@@ -12,22 +12,22 @@ all:
   vars:
     ansible_connection: ssh
     ansible_user: root
-    ansible_password: Admin1Admin1
+    ansible_password: Pars123!!
     ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
 
   children:
     # Klein Water Technologies - SCADA
-    kwt-scada-linux:
+    kwt-linux:
       hosts:
         mt:
         historian:
 
-    kwt-scada-windows:
+    kwt-windows:
       hosts:
         hmi:
 
     # Klein Water Technologies - All Machines
     kwt-all:
       children:
-        kwt-scada-linux:
-        kwt-scada-windows:
+        kwt-linux:
+        kwt-windows:

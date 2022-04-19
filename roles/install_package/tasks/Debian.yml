@@ -11,11 +11,17 @@
   debug:
     msg: '{{ uname.stdout_lines[0] }}'
 
-- name: Install packages
-  shell: sudo apt install --only-upgrade -y '{{ item }}'
+- name:
+  apt:
+    name: '{{ item }}'
   loop:
     - auditd
     - audispd-plugins
+    - net-tools
+
+- name: Install packages
+  shell: sudo apt install --only-upgrade -y '{{ item }}'
+  loop:
     - tcpdump
     - sudo
     - linux-generic
@@ -38,4 +44,3 @@
     - mount
     - util-linux
     - util-linux-locales
-    - net-tools

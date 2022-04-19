@@ -3,8 +3,8 @@
   gather_facts: yes
   become: True
   become_user: root
-  vars_files:
-  - ../roles/03_hardening/vars/main.yml
+#  vars_files:
+#  - ../roles/03_hardening/vars/main.yml
 #  - ../roles/03_hardening/vars/user_change_password.yml
   roles:
-    - role: 03_hardening
+    - role: ../roles/03_hardening

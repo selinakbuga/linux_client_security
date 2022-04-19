@@ -4,4 +4,4 @@
   become: True
   become_user: root
   roles:
-    - role: ../roles/audit_rules
+    - role: ../roles/change_permissions
