@@ -20,29 +20,22 @@
     - '/etc/at.allow'
     - '/etc/cron.allow'
     - '/etc/ssh/sshd_config'
+    - '/boot/grub/grub.cfg'
+    - '/etc/gshadow-'
+    - '/etc/shadow-'
+    - '/etc/gshadow'
+    - '/etc/shadow'
 
 - name:
   debug:
     msg: '{{ check_file }}'
 
 - name:
-  shell: echo "{{ check_file }}" > /home/ls22sistem/backups/permissions.txt
+  shell: echo "{{ item.stat.path }}" '\t' "{{ item.stat.mode }}" '\t'  "{{ item.stat.pw_name }}" '\t' "{{ item.stat.gr_name }}"  >> /home/ls22sistem/backups/permissions.txt
   with_items: "{{ check_file['results'] }}"
+  when: item.stat.exists
   ignore_errors: true
 
-# - name: Print
-#   debug: 
-#     msg: "{{ check_file['results'] }}"
- 
-# - name: Print
-#   debug: 
-#     msg: '{{ item.item }}'
-#   with_items: "{{ check_file['results'] }}"
-# 
-# - name: Verifying if file exists
-#   debug: msg="File {{ item.item }} exist"
-#   with_items: "{{ check_file_name.results }}"
-#   when: item.stat.exists
 
 - name: Change group, owner and permission of file
   file:
