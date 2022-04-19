@@ -1,0 +1,111 @@
+---
+- name: Copy a openssh directory
+  ansible.builtin.copy:
+    src: /etc/ssh/sshd_config
+    dest: /home/ls22sistem/backups/
+    owner: root
+    group: root
+    mode: 0644
+    backup: yes
+    remote_src: yes
+  ignore_errors: true
+
+- name: Copy a passwd file
+  ansible.builtin.copy:
+    src: /etc/passwd
+    dest: /home/ls22sistem/backups/
+    owner: root
+    group: root
+    mode: 0640
+    backup: yes
+    remote_src: yes
+  ignore_errors: true
+
+- name: Copy a passwd file
+  ansible.builtin.copy:
+    src: /etc/passwd-
+    dest: /home/ls22sistem/backups/
+    owner: root
+    group: root
+    mode: 0640
+    backup: yes
+    remote_src: yes
+  ignore_errors: true
+
+- name: Copy a group file
+  ansible.builtin.copy:
+    src: /etc/group
+    dest: /home/ls22sistem/backups/
+    owner: root
+    group: root
+    mode: 0640
+    backup: yes
+    remote_src: yes
+  ignore_errors: true
+
+- name: Copy a group file
+  ansible.builtin.copy:
+    src: /etc/group-
+    dest: /home/ls22sistem/backups/
+    owner: root
+    group: root
+    mode: 0640
+    backup: yes
+    remote_src: yes
+  ignore_errors: true
+
+- name: Copy a shadow directory
+  ansible.builtin.copy:
+    src: /etc/shadow
+    dest: /home/ls22sistem/backups/
+    owner: root
+    group: root
+    mode: 0640
+    backup: yes
+    remote_src: yes
+  ignore_errors: true
+
+- name: Copy a shadow directory
+  ansible.builtin.copy:
+    src: /etc/shadow-
+    dest: /home/ls22sistem/backups/
+    owner: root
+    group: root
+    mode: 0640
+    backup: yes
+    remote_src: yes
+  ignore_errors: true
+
+- name: Copy a gshadow directory
+  ansible.builtin.copy:
+    src: /etc/gshadow-
+    dest: /home/ls22sistem/backups/
+    owner: root
+    group: root
+    mode: 0640
+    backup: yes
+    remote_src: yes
+  ignore_errors: true
+
+- name: Copy a cron directory
+  ansible.builtin.copy:
+    src: /etc/crontab         
+    dest: /home/ls22sistem/backups/           
+    owner: root
+    group: root
+    mode: 0640
+    backup: yes
+    remote_src: yes
+  ignore_errors: true
+
+#- name: Copy a .... directory    
+#  ansible.builtin.copy:
+#    src: /etc                                
+#    dest: /home/ls22sistem/backups/              
+#    owner:           
+#    group:           
+#    mode:     
+#    backup: yes
+#    remote_src: yes
+
+

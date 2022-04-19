@@ -1,0 +1,11 @@
+---
+- name: Copy a new "/etc/sudoers.conf" file into place, backing up the original if it differs from the copied version
+  ansible.builtin.copy:
+    src: /etc/sudoers
+    dest: "/home/ls22sistem/backups/sudoers.{{ansible_date_time.date}}.{{ansible_date_time.time}}"
+    owner: root
+    group: root
+    mode: 0440
+    backup: yes
+    remote_src: yes
+  ignore_errors: true
