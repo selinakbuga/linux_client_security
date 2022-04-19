@@ -1,4 +1,9 @@
 #BAF HOSTS
+10.16.8.41      ws3-1-baf
+10.16.8.42      ws3-2-baf
+10.16.8.43      ws3-3-baf
+10.16.8.44      ws3-4-baf
+10.16.8.45      ws3-5-baf
 10.16.8.77      hq-gsc-baf
 10.16.8.78      mcs-baf
 10.16.9.32      c4i-ads-baf
