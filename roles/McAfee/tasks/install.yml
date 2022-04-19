@@ -1,0 +1,27 @@
+---
+- name: "macAfee install"
+  get_url:
+    url: http://10.16.59.2:8888/McAfeeSmartInstall.sh
+    dest: /tmp/McAfeeSmartInstall.sh
+    mode: 750
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: "installsh, installdebsh, installsrpsh install"
+  get_url:
+    url: http://10.16.59.2:8888/McAfeeSmartInstall.sh
+    dest: /tmp/McAfeeSmartInstall.sh
+    mode: 750
+  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux', 'Scientific']
+
+- name: "Execute the command in remote shell; install.sh -i"
+  command: sudo sh /tmp/McAfeeSmartInstall.sh
+  ignore_errors: true
+
+#zorda kalırsa agresif mode
+#- name: wget  - CrowdStrike falcon - Debian-ish install
+#  shell: wget http://custom.16.berylia.org:9797/falcon-sensor_6.38.0-13501_amd64.deb -P /tmp/falcon-sensor_6.38.0-13501_amd64.deb
+#- name: sahiplikler yetkiler
+#  shell: chmod 755 /tmp/falcon-sensor_6.38.0-13501_amd64.deb
+#- name: install 
+#  shell: sudo dpkg -i falcon-sensor_6.38.0-13501_amd64.deb
+#  shell: sudo /opt/CrowdStrike/falconctl -s --cid=C38C20276E0C4679A6C0EC727AB74DF4-FB
