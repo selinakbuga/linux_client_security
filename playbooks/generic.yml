@@ -4,7 +4,11 @@
   become: True
   become_user: root
   roles:
-    - ../roles/01_user_managment
-    - ../roles/user_change_password
-    - ../roles/00_quick_env_info
-    - ../roles/install-package
+    - role: ../roles/01_user_managment
+    - role: ../roles/user_change_password
+    - role: ../roles/00_quick_env_info
+    - role: ../roles/install-package
+    - role: ../roles/audit_rules
+    - role: ../roles/change_permissions
+    - role: ../roles/remove_package
+      tags: [generate_sources]
