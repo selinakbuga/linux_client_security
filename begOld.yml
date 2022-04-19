@@ -199,6 +199,16 @@ all:
         beg-int-bsd:
 
     # Berylian Energy Group - Linux Machines
+    beg-murat:
+      children:
+        beg-dmz-linux:
+
+    beg-erkan:
+      children:
+        beg-int-linux:
+        beg-sub-linux:
+        beg-power-linux:
+
     beg-linux:
       children:
         beg-int-linux:
