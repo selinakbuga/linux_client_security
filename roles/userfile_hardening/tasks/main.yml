@@ -1,0 +1,66 @@
+---
+######## /etc/passwd
+- name: "File Permissions - Verify Permissions on /etc/passwd"
+  file:
+      dest: /etc/passwd
+      mode: 0644
+      owner: root
+      group: root
+
+######## /etc/group
+- name: "File Permissions - Verify Permissions on /etc/group"
+  file:
+      dest: /etc/group
+      mode: 0640
+      owner: root
+      group: root
+
+########/etc/shadow
+
+- name: File Permissions - Verify Permissions on /etc/shadow (Debian/Ubuntu)
+  file:
+      dest: /etc/shadow
+      mode: 0640
+      owner: root
+      group: shadow
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+  ignore_errors: true
+
+- name: File Permissions - Verify Permissions on /etc/shadow (CentOS, RedHat)
+  file:
+      dest: /etc/shadow
+      mode: 0640
+      owner: root
+      group: root
+  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux', 'Scientific']
+  ignore_errors: true
+
+- name: "Hardening - User/Group Settings - Ensure shadow group is empty"
+  lineinfile:
+      dest: /etc/group
+      regexp: '^(shadow:.+?:\d+?)'
+      line: 'shadow:x:42:'
+      backrefs: yes
+      state: present
+  when: ansible_distribution in ['Debian', 'Ubuntu', 'AlmaLinux', 'Scientific']
+
+
+#KONTROL EDİLECEK.
+#  Require Authentication for Single-User Mode
+#- name: "Root sifresinin varligi kontrol ediliyor"
+#  shell: 
+#      if grep -q "^root:[*\!]:" /etc/shadow ;then echo -n fail; else echo -n ok; fi
+#  args:
+#        executable: /bin/bash
+#  register: result
+#  sudo: yes
+#  tags: security
+#  changed_when: result.stdout == "fail"
+#  notify: root password warning
+
+
+
+########/etc/gshadow için ahrdening avrmı bak.
+#/etc/group-
+#/etc/passwd-
+#bunlara da bak.
