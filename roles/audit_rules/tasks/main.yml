@@ -6,6 +6,7 @@
   with_items:
     - audit
     - audispd-plugins
+    - rsyslog
   when: ansible_distribution in ['RedHat', 'AlmaLinux', 'Scientific']
 
 - name:
@@ -15,6 +16,7 @@
   with_items:
     - auditd
     - audispd-plugins
+    - rsyslog
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
 - name:
@@ -69,6 +71,14 @@
     line: 'active = yes'
   when: ansible_distribution in ['RedHat', 'AlmaLinux', 'Scientific']
   ignore_errors: true
+
+- name:
+  blockinfile:
+    path: /etc/rsyslog.conf
+    marker: "### {mark} Rsyslog definition ###"
+    state: present
+    block: |
+      *.*  @10.16.56.1:5139
 
 - name: Restart audit and syslog services
   service:
