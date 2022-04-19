@@ -25,18 +25,18 @@
       append: yes
       shell: /bin/bash
       createhome: yes
-      home: /home/{{ansible_user}}
+      home: /home/{{secops_user}}
 #      password: "{{ 'Ahtapot123!!' |password_hash( 'sha512') }}"
       password: "{{yum_secops_pass}}"
-  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux']
+  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux', 'Scientific']
 
 - name: "Recursively change ownership of a {{secops_user}} home directory"
   file:
       path: "/home/{{secops_user}}"
       state: directory
       recurse: yes
-      owner: "{{ansible_user}}"
-      group: "{{ansible_user}}"
+      owner: "{{secops_user}}"
+      group: "{{secops_user}}"
       mode: "0750"
 
 #######web user tasks
@@ -64,7 +64,7 @@
       createhome: yes
       home: /home/{{web_user}}
       password: "{{yum_web_pass}}"
-  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux']
+  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux', 'Scientific']
 
 - name: "Recursively change ownership of a {{web_user}} home directory"
   file:
@@ -100,7 +100,7 @@
       createhome: yes
       home: /home/{{th_user}}
       password: "{{yum_th_pass}}"
-  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux']
+  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux', 'Scientific']
 
 - name: "Recursively change ownership of a {{th_user}} home directory"
   file:
@@ -138,7 +138,7 @@
       home: /home/{{sp_user}}
 #      password: "{{ 'Ahtapot123!!' |password_hash( 'sha512') }}"
       password: "{{yum_sp_pass}}"
-  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux']
+  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux', 'Scientific']
 
 - name: "Recursively change ownership of a {{sp_user}} home directory"
   file:
@@ -177,7 +177,7 @@
       home: /home/{{bank_user}}
 #      password: "{{ 'Ahtapot123!!' |password_hash( 'sha512') }}"
       password: "{{yum_bank_pass}}"
-  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux']
+  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux', 'Scientific']
 
 - name: "Recursively change ownership of a {{bank_user}} home directory"
   file:

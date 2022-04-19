@@ -1,0 +1,22 @@
+---
+# LS21-LS22 Linux Operation Security
+# Selin Akbuğa
+# Configure basics of linux machines: users change passwords
+
+root_user: root
+root_password: Pars123!!
+
+secops_user: ls22sistem
+secops_password: Ahtapot123!!
+
+web_user: ls22web
+web_password: Ahtapot123!!
+
+th_user: ls22th
+th_password: Ahtapot123!!
+
+sp_user: ls22sp
+sp_password: Ahtapot123!!
+
+bank_user: ls22bank
+bank_password: Ahtapot123!!

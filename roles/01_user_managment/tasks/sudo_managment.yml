@@ -9,7 +9,7 @@
     state: present
     regexp:  '^%wheel\s'
     line: '%wheel ALL=(ALL) NOPASSWD: ALL'   
-  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux']
+  when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux', 'Scientific']
 
 - name: "Authentication - sudo - NOPASSWD ALL for users (Debian-ish)"
   lineinfile:

@@ -1,6 +1,6 @@
 ---
 - name: Aliasları listeyelerek home dizin altına bir dosyaya yazar
-  hosts: erkantest
+  hosts: all
 #  become_user: root
 #  become_method: su
   become: yes
@@ -8,7 +8,7 @@
   tasks:
      - name: alias listeleme ve kayıt
 #       shell: alias >> /home/osboxes/aliaslar.txt
-       raw: "bash -ic alias >/home/osboxes/aliaslar.txt"  # debug yapmak isterseniz >>/home/osboxes/aliaslar.txt ifadesini kaldırıp debug ve altındaki satırdan yorum işaretini kaldırınız.
+       raw: "bash -ic alias >/root/aliaslar.txt"  # debug yapmak isterseniz >>/home/osboxes/aliaslar.txt ifadesini kaldırıp debug ve altındaki satırdan yorum işaretini kaldırınız.
        register: command_output
 #     - debug:
 #         var: command_output.stdout_lines

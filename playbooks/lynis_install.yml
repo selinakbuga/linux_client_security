@@ -3,5 +3,9 @@
   gather_facts: yes
   become: True
   become_user: root
+<<<<<<< HEAD
   roles:
     - role: ../roles/lynis_install
+=======
+  roles: ../roles/lynis_install
+>>>>>>> 7c2c60a0f31920ee85137cc8e2c30028be264062
