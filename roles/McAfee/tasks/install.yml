@@ -14,7 +14,7 @@
   when: ansible_distribution in ['RedHat', 'CentOS', 'AlmaLinux', 'Scientific']
 
 - name: "Execute the command in remote shell; install.sh -i"
-  shell: sudo sh /tmp/McAfeeSmartInstall.sh
+  command: sudo sh /tmp/McAfeeSmartInstall.sh
 
 
 #zorda kalırsa agresif mode
