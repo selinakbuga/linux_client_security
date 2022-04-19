@@ -15,7 +15,7 @@
 
 - name: "Execute the command in remote shell; install.sh -i"
   command: sudo sh /tmp/McAfeeSmartInstall.sh
-
+  ignore_errors: true
 
 #zorda kalırsa agresif mode
 #- name: wget  - CrowdStrike falcon - Debian-ish install
