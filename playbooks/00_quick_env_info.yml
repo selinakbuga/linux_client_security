@@ -3,10 +3,6 @@
   gather_facts: yes
   become: True
   become_user: root
-<<<<<<< HEAD
 
   roles:
     - role: ../roles/00_quick_env_info
-=======
-  roles: ../roles/00_quick_env_info
->>>>>>> 7c2c60a0f31920ee85137cc8e2c30028be264062
