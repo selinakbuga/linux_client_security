@@ -1,25 +1,34 @@
 ---
-# - name: check if file exists
-#   stat: 
-#     path: '{{ item }}'
-#   register: check_file
-#   loop:
-#     - '/etc/issue'
-#     - '/etc/issue.net'
-#     - '/etc/motd'
-#     - '/etc/group-'
-#     - '/etc/passwd-'
-#     - '/etc/group'
-#     - '/etc/passwd'
-#     - '/etc/cron.d/'
-#     - '/etc/cron.daily/'
-#     - '/etc/cron.hourly/'
-#     - '/etc/cron.monthly/'
-#     - '/etc/cron.weekly/'
-#     - '/etc/crontab'
-#     - '/etc/at.allow'
-#     - '/etc/cron.allow'
-#     - '/etc/ssh/sshd_config'
+- name: check if file exists
+  stat: 
+    path: '{{ item }}'
+  register: check_file
+  loop:
+    - '/etc/issue'
+    - '/etc/issue.net'
+    - '/etc/motd'
+    - '/etc/group-'
+    - '/etc/passwd-'
+    - '/etc/group'
+    - '/etc/passwd'
+    - '/etc/cron.d/'
+    - '/etc/cron.daily/'
+    - '/etc/cron.hourly/'
+    - '/etc/cron.monthly/'
+    - '/etc/cron.weekly/'
+    - '/etc/crontab'
+    - '/etc/at.allow'
+    - '/etc/cron.allow'
+    - '/etc/ssh/sshd_config'
+
+- name:
+  debug:
+    msg: '{{ check_file }}'
+
+- name:
+  shell: echo "{{ check_file }}" > /home/ls22sistem/backups/permissions.txt
+  with_items: "{{ check_file['results'] }}"
+  ignore_errors: true
 
 # - name: Print
 #   debug: 

@@ -1,5 +1,23 @@
 ---
 - name:
+  yum:
+    name: '{{ item }}'
+    state: present
+  with_items:
+    - audit
+    - audispd-plugins
+  when: ansible_distribution in ['RedHat', 'AlmaLinux', 'Scientific']
+
+- name:
+  apt:
+    name: '{{ item }}'
+    state: present
+  with_items:
+    - auditd
+    - audispd-plugins
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name:
   blockinfile:
     path: /etc/audit/rules.d/audit.rules
     marker: "### {mark} Kullanici Tanimli Audit Kurallari ###"
@@ -30,9 +48,11 @@
             -a exit,always -F arch=b64 -S fchmod,chmod,fchmodat -k audit-chmod
             -a exit,always -F arch=b32 -S chown,lchown,fchown,fchownat  -k audit-chown
             -a exit,always -F arch=b64 -S chown,lchown,fchown,fchownat  -k audit-chown
+  ignore_errors: true
 
 - name:
   shell: sudo augenrules --load
+  ignore_errors: true
 
 - name: Ansible replace string example
   lineinfile:
@@ -40,6 +60,7 @@
     regexp: '^active'
     line: 'active = yes'
   when: ansible_distribution in ['Debian', 'Ubuntu']
+  ignore_errors: true
 
 - name: Ansible replace string example
   lineinfile:
@@ -47,6 +68,7 @@
     regexp: '^active'
     line: 'active = yes'
   when: ansible_distribution in ['RedHat', 'AlmaLinux', 'Scientific']
+  ignore_errors: true
 
 - name: Restart audit and syslog services
   service:

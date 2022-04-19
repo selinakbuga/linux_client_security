@@ -1,6 +1,15 @@
 ---
 - name:
   yum:
+    name: '{{ item }}'
+  loop:
+    - net-tools
+    - audit
+    - audispd-plugins
+    - rsyslog
+
+- name:
+  yum:
     update_only: true
     name: '{{ item }}'
   loop:
@@ -16,7 +25,3 @@
     - openssl-libs
     - sudo
     - tcpdump
-    - audit
-    - audispd-plugins
-    - net-tools
-    - rsyslog
