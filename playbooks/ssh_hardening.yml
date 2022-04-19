@@ -1,8 +1,7 @@
 ---
-- name: Install packages
-  hosts: baf-linux
+- hosts: all
   become: true
   gather_facts: yes
-
+  become_user: root
   roles:
     - ../roles/ssh_hardening
