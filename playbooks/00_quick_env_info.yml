@@ -3,5 +3,4 @@
   gather_facts: yes
   become: True
   become_user: root
-  roles:
-    - role: 00_quick_env_info
+  roles: ../roles/00_quick_env_info
