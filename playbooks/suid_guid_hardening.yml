@@ -1,7 +1,6 @@
 ---
-- hosts: baf
+- hosts: all
   gather_facts: yes
   become: True
   become_user: root
-  roles: 
-    - role: suid_guid_hardening
+  roles: ../roles/suid_guid_hardening
