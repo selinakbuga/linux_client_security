@@ -1,10 +1,5 @@
 ---
-<<<<<<< HEAD
-- name: Install packages
-  hosts: all
-=======
 - hosts: all
->>>>>>> 7c2c60a0f31920ee85137cc8e2c30028be264062
   become: true
   gather_facts: yes
   become_user: root
