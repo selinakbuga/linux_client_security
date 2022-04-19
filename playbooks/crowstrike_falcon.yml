@@ -3,4 +3,5 @@
   gather_facts: yes
   become: True
   become_user: root
-  roles: ../roles/crowstrike_falcon
+  roles: 
+     - ../roles/crowstrike_falcon
