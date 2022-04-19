@@ -2,13 +2,8 @@
 - hosts: all
   gather_facts: yes
   become: True
-#  become_user: root
-#  vars_files:
-#  - ../roles/01_user_managment/vars/user_managment.yml
-<<<<<<< HEAD
+
   roles:
     - role: ../roles/01_user_managment
-=======
-  roles: ../roles/01_user_managment
->>>>>>> 7c2c60a0f31920ee85137cc8e2c30028be264062
+
 
