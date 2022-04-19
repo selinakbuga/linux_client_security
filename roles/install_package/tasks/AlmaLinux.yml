@@ -7,6 +7,7 @@
     - audit
     - audispd-plugins
     - rsyslog
+    - vim
 
 - name:
   yum:
@@ -16,7 +17,9 @@
     - kernel
     - kernel-core
     - kernel-modules
+    - kernel-tools
     - kernel-tools-libs
+    - cryptsetup-libs
     - python3-perf
     - libgcc
     - libgomp
@@ -25,3 +28,11 @@
     - openssl-libs
     - sudo
     - tcpdump
+    - polkit
+    - rpm-libs
+    - python3-rpm
+    - rpm
+    - rpm-libs
+    - rpm-build-libs
+    - rpm-plugin-selinux
+    - rpm-plugin-systemd-inhibit
